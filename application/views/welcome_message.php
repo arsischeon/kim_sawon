@@ -10,9 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body style="margin:0">
 
 <div>
-	<object type="text/svg">
-	 <data src="/sources/mainpage.svg">
- </object>
+	<object data="/sources/mainpage.svg" type="image/svg+xml"></object>
 </div>
 
 
