@@ -3,7 +3,6 @@
   <defs>
     <style>
       #character_gosoo:hover{
-        fill:#eff0ea;
         opacity: 50%;
       }
       .cls-1{
