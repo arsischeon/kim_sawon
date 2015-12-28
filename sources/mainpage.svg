@@ -8,7 +8,7 @@
       })
     </script>
     <style>
-      #character_gosoo:hover{
+      rect:hover{
         opacity: 50%;
         fill:#f3c262;
       }
