@@ -11,6 +11,9 @@
         opacity: 50%;
         fill:#f3c262;
       }
+      #character_gosoo{
+        opacity: 100%;
+      }
       .cls-1{
     	   fill:url(#linear-gradient);
     	}
