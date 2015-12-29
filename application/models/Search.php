@@ -24,7 +24,7 @@ class Search extends CI_Model{
     $amount=$this->input->get('amount');
       return $this->db->query("
 select * from PARSED p
-join SITE s in p.site_id=s.id
+join SITE s on p.site_id=s.id
 where p.site_id in (select id from SITE
 where
 goods like '%$goods%'
@@ -58,7 +58,7 @@ order by price
     $amount=$this->input->get('amount');
     return $this->db->query("
 select * from PARSED p
-join SITE s in p.site_id=s.id
+join SITE s on p.site_id=s.id
 where p.site_id in (select id from SITE
 where
 goods like '%$goods%'
