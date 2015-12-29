@@ -34,15 +34,15 @@ and i.paperType like '%$paperType%'
 and i.paperThick like '%$paperThick%'
 and i.color like '%$color%'
 and i.coating like '%$coating%')
-and goods = '$goods'
-and size = '$size'
-and side = '$side'
-and paperType = '$paperType'
-and paperThick = '$paperThick'
-and color = '$color'
-and coating = '$coating'
-and amount = '$amount'
-order by price
+and p.goods = '$goods'
+and p.size = '$size'
+and p.side = '$side'
+and p.paperType = '$paperType'
+and p.paperThick = '$paperThick'
+and p.color = '$color'
+and p.coating = '$coating'
+and p.amount = '$amount'
+order by p.price
 ");
   }
 
@@ -68,15 +68,15 @@ and i.paperType like '%$paperType%'
 and i.paperThick like '%$paperThick%'
 and i.color like '%$color%'
 and i.coating like '%$coating%')
-and goods = '$goods'
-and size = '$size'
-and side = '$side'
-and paperType = '$paperType'
-and paperThick = '$paperThick'
-and color = '$color'
-and coating = '$coating'
-and amount > '$amount'
-order by price
+and p.goods = '$goods'
+and p.size = '$size'
+and p.side = '$side'
+and p.paperType = '$paperType'
+and p.paperThick = '$paperThick'
+and p.color = '$color'
+and p.coating = '$coating'
+and p.amount > '$amount'
+order by p.price
 ");
 
 
