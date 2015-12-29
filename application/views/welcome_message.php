@@ -32,10 +32,4 @@ document.getElementById('obj').addEventListener("load",function(){
 	});
 })
 
-
-
-// .addEventListener("click", function(){
-//   alert('fwe');
-//
-// });
 </script>
