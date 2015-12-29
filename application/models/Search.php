@@ -25,15 +25,15 @@ class Search extends CI_Model{
       return $this->db->query("
 select * from PARSED p
 join SITE s on p.site_id=s.id
-where p.site_id in (select id from SITE
+where p.site_id in (select id from SITE i
 where
-goods like '%$goods%'
-and size like '%$size%'
-and side like '%$side%'
-and paperType like '%$paperType%'
-and paperThick like '%$paperThick%'
-and color like '%$color%'
-and coating like '%$coating%')
+i.goods like '%$goods%'
+and i.size like '%$size%'
+and i.side like '%$side%'
+and i.paperType like '%$paperType%'
+and i.paperThick like '%$paperThick%'
+and i.color like '%$color%'
+and i.coating like '%$coating%')
 and goods = '$goods'
 and size = '$size'
 and side = '$side'
@@ -59,15 +59,15 @@ order by price
     return $this->db->query("
 select * from PARSED p
 join SITE s on p.site_id=s.id
-where p.site_id in (select id from SITE
+where p.site_id in (select id from SITE i
 where
-goods like '%$goods%'
-and size like '%$size%'
-and side like '%$side%'
-and paperType like '%$paperType%'
-and paperThick like '%$paperThick%'
-and color like '%$color%'
-and coating like '%$coating%')
+i.goods like '%$goods%'
+and i.size like '%$size%'
+and i.side like '%$side%'
+and i.paperType like '%$paperType%'
+and i.paperThick like '%$paperThick%'
+and i.color like '%$color%'
+and i.coating like '%$coating%')
 and goods = '$goods'
 and size = '$size'
 and side = '$side'
