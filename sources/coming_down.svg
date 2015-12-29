@@ -2,9 +2,13 @@
   <defs>
     <style>
     .cls-1{fill:#f3c262;}.cls-2{fill:#eff0ea;}.cls-3,.cls-5{fill:none;}.cls-3{stroke:#eff0ea;stroke-miterlimit:10;stroke-width:1.5px;}.cls-4{fill:#66635a;}
-    .cls-6{fill:#fff;}
-    #service:hover{
-      stroke:red;
+    .cls-6{
+      stroke-width:10px;
+      stroke-opacity:0.0;
+      fill:#fff;
+    }
+
+    #service .cls-6:hover{
       fill: red;
       cursor: pointer;
     }
