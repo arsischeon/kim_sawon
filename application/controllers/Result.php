@@ -9,7 +9,7 @@ class Result extends CI_Controller {
     $data['resultSimmilar']=$this->search->gosuSimmilar();
 
     $this->load->view('header');
-    $this->load->view('result');
+    $this->load->view('result',$data);
     $this->load->view('footer');
 
   }
