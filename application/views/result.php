@@ -1,6 +1,6 @@
 
 <table>
-<?php foreach ($resultExact as $result): ?>
+<?php foreach ($resultExact->result_array() as $result): ?>
   <td>
     <tr><? echo $result['amount']; ?></tr>
     <tr><? echo $result['price']; ?></tr>
@@ -11,7 +11,7 @@
 <hr>
 
 <table>
-<?php foreach ($resultSimmilar as $result): ?>
+<?php foreach ($resultSimmilar->result_array() as $result): ?>
   <td>
     <tr><? echo $result['amount']; ?></tr>
     <tr><? echo $result['price']; ?></tr>
