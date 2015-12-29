@@ -22,7 +22,7 @@
 
 <script>
 
-document.getElementById('obj').addEventListener("load",function(){
+document.getElementById('obj2').addEventListener("load",function(){
 	var doc=this.getSVGDocument();
 	doc.querySelector('#previous_page_arrow').addEventListener("mouseover",function(){
 		document.getElementById('obj2').classList.add('moving');
