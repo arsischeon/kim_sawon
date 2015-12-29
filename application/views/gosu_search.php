@@ -32,11 +32,13 @@
 <script>
 var obj=document.getElementById('obj');
 var obj2=document.getElementById('obj2');
+obj2.style.display='none';
 
 obj.addEventListener("load",function(){
 	//마우스오버시 메뉴가 내려옴
 	var doc=this.getSVGDocument();
 	doc.querySelector('#previous_page_arrow').addEventListener("mouseover",function(){
+		obj2.style.display='';
 		obj2.classList.add('movingDown');
 		obj2.addEventListener("mouseout",function(){
 			obj2.classList.remove('movingDown');
@@ -50,9 +52,9 @@ obj2.addEventListener("load",function(){
 	var doc=this.getSVGDocument();
 //내려온 메뉴에 링크를 붙임.
 	doc.querySelector('#service').addEventListener("click",function(){
-	location.href="naver.com";
+		location.href="naver.com";
 	});
-	
+
 
 });
 
