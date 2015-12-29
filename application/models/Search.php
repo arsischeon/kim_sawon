@@ -12,7 +12,8 @@ class Search extends CI_Model{
           $amount;
           $this->load->database();
         }
-  private function getInfo(){
+
+  public function gosuExact(){
     $goods=$this->input->get('goods');
     $size=$this->input->get('size');
     $side=$this->input->get('side');
@@ -21,10 +22,6 @@ class Search extends CI_Model{
     $color=$this->input->get('color');
     $coating=$this->input->get('coating');
     $amount=$this->input->get('amount');
-
-  }
-  public function gosuExact(){
-      getInfo();
       return $this->db->query("
 select * from PARSED p
 join SITE s in p.site_id=s.id
@@ -47,12 +44,18 @@ and coating = '$coating'
 and amount = '$amount'
 order by price
 ");
-
-      return $this->db->query('');
-
   }
+
+
   public function gosuSimmilar(){
-    getInfo();
+    $goods=$this->input->get('goods');
+    $size=$this->input->get('size');
+    $side=$this->input->get('side');
+    $paperType=$this->input->get('paperType');
+    $paperThick=$this->input->get('paperThick');
+    $color=$this->input->get('color');
+    $coating=$this->input->get('coating');
+    $amount=$this->input->get('amount');
     return $this->db->query("
 select * from PARSED p
 join SITE s in p.site_id=s.id
