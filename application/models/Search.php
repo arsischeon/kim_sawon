@@ -27,13 +27,13 @@ select * from PARSED p
 join SITE s in p.site_id=s.id
 where p.site_id in (select id from SITE
 where
-goods like '$goods'
-and size like '$size'
-and side like '$side'
-and paperType like '$paperType'
-and paperThick like '$paperThick'
-and color like '$color'
-and coating like '$coating')
+goods like '%$goods%'
+and size like '%$size%'
+and side like '%$side%'
+and paperType like '%$paperType%'
+and paperThick like '%$paperThick%'
+and color like '%$color%'
+and coating like '%$coating%')
 and goods = '$goods'
 and size = '$size'
 and side = '$side'
@@ -61,13 +61,13 @@ select * from PARSED p
 join SITE s in p.site_id=s.id
 where p.site_id in (select id from SITE
 where
-goods like '$goods'
-and size like '$size'
-and side like '$side'
-and paperType like '$paperType'
-and paperThick like '$paperThick'
-and color like '$color'
-and coating like '$coating')
+goods like '%$goods%'
+and size like '%$size%'
+and side like '%$side%'
+and paperType like '%$paperType%'
+and paperThick like '%$paperThick%'
+and color like '%$color%'
+and coating like '%$coating%')
 and goods = '$goods'
 and size = '$size'
 and side = '$side'
