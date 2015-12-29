@@ -26,6 +26,10 @@ document.getElementById('obj').addEventListener("load",function(){
 	doc.querySelector('#character_hasoo').addEventListener("click",function(){
 		location.href="../search/hasoo";
 	});
+
+	doc.querySelector('#transparent').addEventListener("click",function(){
+		location.href="../";
+	});
 })
 
 
