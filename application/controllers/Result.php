@@ -6,7 +6,7 @@ class Result extends CI_Controller {
   public function gosoo(){
     $this->load->model('search');
     $data['resultExact']=$this->search->gosuExact();
-    $data['resultSimmilar']=$this->search->gosuSimillar();
+    $data['resultSimmilar']=$this->search->gosuSimmilar();
 
     $this->load->view('header');
     $this->load->view('result');
