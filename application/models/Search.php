@@ -1,15 +1,15 @@
 <?php
 class Search extends CI_Model{
-  $goods;
-  $size;
-  $side;
-  $paperType;
-  $paperThick;
-  $color;
-  $coating;
-  $amount;
   public function __construct()
         {
+          $goods;
+          $size;
+          $side;
+          $paperType;
+          $paperThick;
+          $color;
+          $coating;
+          $amount;
           $this->load->database();
         }
   private function getInfo(){
