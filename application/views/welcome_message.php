@@ -15,7 +15,9 @@ document.getElementById('obj').addEventListener("load",function(){
 	doc.querySelector('#menu3').addEventListener("click",function(){
 		location.href="/menu/cs";
 	});
-
+	doc.querySelector('#logo').addEventListener("click",function(){
+		location.href="/";
+	});
 
 
 	doc.querySelector('#balloon_gosoo').addEventListener("click",function(){
@@ -39,9 +41,7 @@ document.getElementById('obj').addEventListener("load",function(){
 		location.href="../search/hasoo";
 	});
 
-	doc.querySelector('#logo').addEventListener("click",function(){
-		location.href="/";
-	});
+
 })
 
 </script>

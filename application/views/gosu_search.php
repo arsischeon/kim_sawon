@@ -50,10 +50,21 @@ obj.addEventListener("load",function(){
 });
 obj2.addEventListener("load",function(){
 	var doc=this.getSVGDocument();
+
 //내려온 메뉴에 링크를 붙임.
-	doc.querySelector('#service').addEventListener("click",function(){
-		location.href="naver.com";
-	});
+//coming_down.svg 에 클릭 이벤트 넣음.
+doc.querySelector('#menu1').addEventListener("click",function(){
+	location.href="/menu/description";
+});
+doc.querySelector('#menu2').addEventListener("click",function(){
+	location.href="/menu/howto";
+});
+doc.querySelector('#menu3').addEventListener("click",function(){
+	location.href="/menu/cs";
+});
+doc.querySelector('#logo').addEventListener("click",function(){
+	location.href="/";
+});
 
 
 });
