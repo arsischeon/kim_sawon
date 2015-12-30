@@ -7,12 +7,17 @@
 
 <style>
 @keyframes down {
-    from {top:-195px;}
-    to {top:0px;}
+    from {top:-195px;
+		opacity:0;}
+    to {top:0px;
+		opacity:1;}
 }
 @keyframes up {
-    from {top:0px;}
-		to {top:-195px;}
+    from {top:0px;
+		opacity:1;}
+		to {top:-195px;
+				opacity:0.0;
+		}
 }
 .movingDown{
 	position:absolute;
