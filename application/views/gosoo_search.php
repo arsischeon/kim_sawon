@@ -8,13 +8,9 @@
 <style>
 @keyframes down {}
 @keyframes up {}
-.initial{
-	position:absolute;
-}
-.movingDown{
-}
-.movingUp{
-}
+.initial{}
+.movingDown{}
+.movingUp{}
 
 </style>
 
@@ -65,12 +61,11 @@ obj2.addEventListener("load",function(){
 	var initial=getRule("initial");
 	initial.style.cssText="position:absolute; top:-"+ doc.querySelector('#background').getBoundingClientRect().height +"px";
 	doc.querySelector('#mouse_over_pop_up .cls-3').addEventListener("mouseover",function(){
-		var hei;
+		var hei; //백그라운드 높이 저장
 		obj2.classList.remove('movingUp');
 		obj2.classList.remove('initial');
 		//down 부터
 		var keyframes = getRule("down");
-		// console.log("0% { opacity:0; top:-"+ doc.querySelector('#background').getBoundingClientRect().height +"px }");
 		keyframes.deleteRule("0");
 		keyframes.deleteRule("100");
 		keyframes.appendRule("0% {  top:-"+ (hei=doc.querySelector('#background').getBoundingClientRect().height) +"px }");
@@ -78,26 +73,21 @@ obj2.addEventListener("load",function(){
 		getRule("movingDown").style.cssText="	position:absolute; animation-name: down; animation-duration: 0.4s; top:0px;"
 		obj2.classList.add('movingDown');
 
+		//up 부분
 		obj2.addEventListener("mouseout",function(){
  		 if(obj2.getBoundingClientRect().top==0){
  		obj2.classList.remove('movingDown');
  		var keyframes = getRule("up");
  		keyframes.deleteRule("0");
  		keyframes.deleteRule("100");
- 		// console.log("0% { opacity:0; top:-"+ doc.querySelector('#background').getBoundingClientRect().height +"px }");
  		keyframes.appendRule("0% {  top:0px; }");
  		keyframes.appendRule("100% {  top:-"+ hei +"px }");
  		getRule("movingUp").style.cssText="	position:absolute; animation-name: up; animation-duration: 0.4s; top:-"+hei+"px;"
  		obj2.classList.add('movingUp');
- 	}
+ 			}
  	 });
-	 
+
 	});
-
-
-
-
-
 
 //내려온 메뉴에 링크를 붙임.
 //coming_down.svg 에 클릭 이벤트 넣음.
