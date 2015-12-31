@@ -2,6 +2,7 @@
 
 <div style="min-width:1080px">
 	<object id="obj" data="/sources/description.svg" type="image/svg+xml"></object>
+	<object style="min-width:1080px; " class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
 </div>
 
 <style>

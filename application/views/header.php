@@ -10,9 +10,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta name="author" content="SERIESC">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<title></title>
-  <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
-  <style>
-  @import url(https://cdn.rawgit.com/theeluwin/NotoSansKR-Hestia/master/stylesheets/NotoSansKR-Hestia.css);
-  </style>
 </head>
-<body style="margin:0; ">
+<body style="margin:0; background: #EFF0EA;">
