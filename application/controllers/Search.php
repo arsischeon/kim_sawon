@@ -8,12 +8,16 @@ class Search extends CI_Controller {
     $this->load->view('gosoo_search');
     $this->load->view('footer');
   }
-  public function how(){
-
+  public function joongsoo(){
+    $this->load->view('header');
+    $this->load->view('joongsoo_search');
+    $this->load->view('footer');
 
   }
-  public function cs(){
-
+  public function hasoo(){
+    $this->load->view('header');
+    $this->load->view('hasoo_search');
+    $this->load->view('footer');
 
   }
 
