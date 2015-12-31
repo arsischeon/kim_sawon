@@ -46,9 +46,14 @@
       </text>
    </g>
 </svg>
+<style>
+table{
+	color: #66635A;
+}
+</style>
 	<table id="result_table">
 		<thead>
-			<th style="font-size:19pt; text-align:left;">더 저렴하게?</th>
+			<th style="font-size:15pt; text-align:left;">더 저렴하게?</th>
 			<th style="font-size:10pt; text-align:left;">업체명</th>
 			<th style="font-size:10pt; text-align:left;">총액</th>
 			<th style="font-size:10pt; text-align:left;">장당 가격</th>
@@ -57,12 +62,12 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td style="font-size:10pt; text-align:left;"><b>매수</b>-크기-종이재질-종이무게-도수-면-코팅</td>
-				<td style="font-size:10pt; text-align:left;">업체명</td>
-				<td style="font-size:10pt; text-align:left;">00,000원</td>
-				<td style="font-size:10pt; text-align:left;">0,000원</td>
-				<td style="font-size:10pt; text-align:left;">0,000원</td>
-				<td></td>
+				<td style="width:39%;font-size:10pt; text-align:left;"><b>매수</b>-크기-종이재질-종이무게-도수-면-코팅</td>
+				<td style="width:11%; font-size:10pt; text-align:left;">업체명</td>
+				<td style="width:12%; font-size:10pt; text-align:left;">00,000원</td>
+				<td style="width:12%; font-size:10pt; text-align:left;">0,000원</td>
+				<td style="width:12%; font-size:10pt; text-align:left;">10만원 미만 2500원부터</td>
+				<td><img type="button" src="/sources/button.png" style="text-align:right; vertical-align:middle; width:80px;"></td>
 			</tr>
 		</tbody>
 
