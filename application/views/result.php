@@ -48,20 +48,20 @@
 </svg>
 	<table id="result_table">
 		<thead>
-			<th style="font-size:13pt; ">더 저렴하게?</th>
-			<th style="font-size:10pt;">업체명</th>
-			<th>총액</th>
-			<th>장당 가격</th>
-			<th>배송비</th>
+			<th style="font-size:19pt; text-align:left;">더 저렴하게?</th>
+			<th style="font-size:10pt; text-align:left;">업체명</th>
+			<th style="font-size:10pt; text-align:left;">총액</th>
+			<th style="font-size:10pt; text-align:left;">장당 가격</th>
+			<th style="font-size:10pt; text-align:left;">배송비</th>
 			<th></th>
 		</thead>
 		<tbody>
 			<tr>
-				<td>매수-크기-종이재질-종이무게-도수-면-코팅</td>
-				<td>업체명</td>
-				<td>00,000원</td>
-				<td>0,000원</td>
-				<td>0,000원</td>
+				<td style="font-size:10pt; text-align:left;"><b>매수</b>-크기-종이재질-종이무게-도수-면-코팅</td>
+				<td style="font-size:10pt; text-align:left;">업체명</td>
+				<td style="font-size:10pt; text-align:left;">00,000원</td>
+				<td style="font-size:10pt; text-align:left;">0,000원</td>
+				<td style="font-size:10pt; text-align:left;">0,000원</td>
 				<td></td>
 			</tr>
 		</tbody>
