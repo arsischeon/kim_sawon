@@ -13,7 +13,8 @@ class Search extends CI_Model{
           $this->load->database();
         }
 
-  public function gosuExact(){    
+  public function gosuExact(){
+
     $goods=$this->input->get('goods');
     $size=$this->input->get('size');
     $side=$this->input->get('side');
