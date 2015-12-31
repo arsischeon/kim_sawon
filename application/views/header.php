@@ -11,4 +11,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<title></title>
 </head>
-<body style="margin:0">
+<body style="margin:0; background: #EFF0EA;">
