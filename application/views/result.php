@@ -29,7 +29,7 @@
       <circle class="cls-4" cx="170.85" cy="108.62" r="66.9"/>
    </g>
    <g id="more_results" data-name="more results">
-      <text class="cls-5" transform="translate(1137.78 175.05)">검색결과 더보기</text>
+      <text class="cls-5" style="font-size:8px;" transform="translate(1137.78 175.05)">검색결과 더보기</text>
       <polygon class="cls-6" points="1314.96 158.15 1325.46 172.34 1335.96 158.15 1314.96 158.15"/>
    </g>
    <g id="cheapest_price_banner" data-name="cheapest price banner">
