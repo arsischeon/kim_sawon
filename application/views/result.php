@@ -72,7 +72,9 @@ table{
 		</tbody>
 
 	</table>
-
+<script>
+$("td>img").css("width", "99px");
+</script>
 
 
 </div>
