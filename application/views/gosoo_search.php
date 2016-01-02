@@ -54,7 +54,7 @@ $(function(){
 #amount-button{
 	width: 6em !important;
 }
-#paperType-button,#coating-button{
+#paperType-button,#coating-button,#front_color-button,#back_color-button{
 	width: 9em !important;
 }
 .overflow { height: 200px; }
@@ -81,9 +81,9 @@ option{
 .movingUp{}
 
 </style>
-<div id="inside" class="container" style="display:none; position: absolute; ">
+<div id="inside" class="container" style="overflow-y:scroll; display:none; position: absolute; ">
 		<div class="row">
-			<div class="col-xs-4" style="padding-right:10px;">
+			<div class="col-xs-4" style="padding-right:0px;">
 				<span class="option-label">수량</span>
 				<select name="amount" id="amount">
   				<option value=""></option>
@@ -261,7 +261,7 @@ obj.addEventListener("load",function(){
 	$("#inside").css("left",insideLeft+"px");
 	$("#inside").css("width",insideWidth+"px");
 	$("#inside").css("top",topOfInside+20+"px");
-	$("#inside").css("height",heightOfInside-5+"px");
+	$("#inside").css("height",heightOfInside-35+"px");
 	$("#inside").css("display","");
 	$(window).on("resize",function(){
 		var leftOfInside=doc.querySelector("#lefthand").getBoundingClientRect().right;
@@ -273,7 +273,8 @@ obj.addEventListener("load",function(){
 		$("#inside").css("left",insideLeft+"px");
 		$("#inside").css("width",insideWidth+"px");
 		$("#inside").css("top",topOfInside+20+"px");
-		$("#inside").css("height",heightOfInside-5+"px");
+		$("#inside").css("height",heightOfInside-35+"px");
+
 });
 	});
 
