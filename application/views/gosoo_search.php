@@ -4,13 +4,19 @@
 	<object id="obj" data="/sources/search_gosoo.svg" type="image/svg+xml"></object>
 	<object style="min-width:1080px; z-index:1000;" class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
 </div>
-
+<script>
+$(function(){
+	$( "#amount" ).selectmenu().selectmenu( "menuWidget" ).addClass( "overflow" );
+	$( "#paperType" ).selectmenu();
+	$( "#coating" ).selectmenu();
+	$('[data-toggle="tooltip"]').tooltip();
+});
+</script>
 <div id="inside" class="container" style="display:none; position: absolute; ">
-
 		<div class="row">
-			<div class="col-sm-6">
-				<span>수량</span>
-				<select name="speed" id="speed">
+			<div class="col-xs-4">
+				<span class="option-label">수량</span>
+				<select name="amount" id="amount">
   				<option value=""></option>
 					<option value="100">100</option>
 					<option value="200">200</option>
@@ -35,29 +41,53 @@
 					<option value="4500">4500</option>
 					<option value="5000">5000</option>
 				</select>
-
-
-<script>
-$( "#speed" ).selectmenu({
-
-
-}).selectmenu( "menuWidget" ).addClass( "overflow" );
-</script>
+				<div style=" float: right; padding-top: 5px;">
+					<img data-toggle="tooltip" style="padding-top: 5px;" data-placement="bottom" title="여러 업체에서 선택할 수 있는 수량이 다르기 때문에, 우리는 가장 보편적인 수치들을 선택지로 제공하기로 했어. 만약 꼭 다른 수치를 입력하기를 원한다면 고객센터로 연락해줘!" src="/sources/question_icon.png">
+					<span style="display: inline-block; font-size:2px;vertical-align: top;"> 왜 더 많은 단위의<br> 입력이 안되나요? </span>
+				</div>
 
 			</div>
-			<div class="col-lg-6"> dd
+			<div class="col-xs-4">
+				<span class="option-label">종이재질</span>
+				<select name="paperType" id="paperType">
+  				<option value=""></option>
+					<option value="1">아트지</option>
+					<option value="2">스노우지</option>
+					<option value="3">모조지</option>
+					<option value="4">르누와르</option>
+					<option value="5">랑데부</option>
+					<option value="6">아르떼</option>
+				</select>
+			</div>
+			<div class="col-xs-4">
+				<span class="option-label">코팅</span>
+				<select name="coating" id="coating">
+					<option value="">코팅없음</option>
+					<option value="1">단면무광</option>
+					<option value="2">양면무광</option>
+					<option value="3">단면유광</option>
+					<option value="4">양면유광</option>
+				</select>
 			</div>
 		</div>
 
 </div>
 <style>
+.option-label{
+	margin-right:3px;
+}
+#amount-button{
+	width: 6em !important;
+}
+#paperType-button,#coating-button{
+	width: 9em !important;
+}
 .overflow { height: 200px; }
 .ui-selectmenu-button, .ui-button, .ui-widget{
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
-	width: 6em !important;
 	background: white !important;
 }
 span{
@@ -125,7 +155,7 @@ obj.addEventListener("load",function(){
 	var insideLeft=leftOfInside;
 	$("#inside").css("left",insideLeft+"px");
 	$("#inside").css("width",insideWidth+"px");
-	$("#inside").css("top",topOfInside+5+"px");
+	$("#inside").css("top",topOfInside+20+"px");
 	$("#inside").css("height",heightOfInside-5+"px");
 	$("#inside").css("display","");
 	$(window).on("resize",function(){
@@ -137,7 +167,7 @@ obj.addEventListener("load",function(){
 		var insideLeft=leftOfInside;
 		$("#inside").css("left",insideLeft+"px");
 		$("#inside").css("width",insideWidth+"px");
-		$("#inside").css("top",topOfInside+5+"px");
+		$("#inside").css("top",topOfInside+20+"px");
 		$("#inside").css("height",heightOfInside-5+"px");
 });
 	});
