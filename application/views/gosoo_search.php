@@ -2,10 +2,71 @@
 
 <div style="min-width:1080px">
 	<object id="obj" data="/sources/search_gosoo.svg" type="image/svg+xml"></object>
-	<object style="min-width:1080px; " class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
+	<object style="min-width:1080px; z-index:1000;" class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
 </div>
+<div id="inside" class="container" style="display:none; position: absolute; ">
 
+		<div class="row">
+			<div class="col-sm-6">
+				<span>수량</span>
+				<select name="speed" id="speed">
+  				<option value=""></option>
+					<option value="100">100</option>
+					<option value="200">200</option>
+					<option value="300">300</option>
+					<option value="400">400</option>
+					<option value="500">500</option>
+					<option value="600">600</option>
+					<option value="700">700</option>
+					<option value="800">800</option>
+					<option value="900">900</option>
+					<option value="1000">1000</option>
+					<option value="1100">1100</option>
+					<option value="1200">1200</option>
+					<option value="1300">1300</option>
+					<option value="1400">1400</option>
+					<option value="1500">1500</option>
+					<option value="2000">2000</option>
+					<option value="2500">2500</option>
+					<option value="3000">3000</option>
+					<option value="3500">3500</option>
+					<option value="4000">4000</option>
+					<option value="4500">4500</option>
+					<option value="5000">5000</option>
+				</select>
+
+<script>
+$( "#speed" ).selectmenu({
+
+
+}).selectmenu( "menuWidget" ).addClass( "overflow" );
+</script>
+
+			</div>
+			<div class="col-lg-6"> dd
+			</div>
+		</div>
+
+</div>
 <style>
+.overflow { height: 200px; }
+.ui-selectmenu-button, .ui-button, .ui-widget{
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	width: 6em !important;
+	background: white !important;
+}
+span{
+	font-family: Noto Sans CJK KR;
+}
+option{
+	text-align: center;
+}
+#inside{
+
+}
 @keyframes down {}
 @keyframes up {}
 .initial{}
@@ -51,7 +112,30 @@ function getRule(data) {
 
 obj.addEventListener("load",function(){
 	//마우스오버시 메뉴가 내려옴
-	var doc=this.getSVGDocument();
+	var doc=obj.getSVGDocument();
+	var leftOfInside=doc.querySelector("#lefthand").getBoundingClientRect().right;
+	var rightOfInside=doc.querySelector("#righthand").getBoundingClientRect().left;
+	var topOfInside=doc.querySelector("#backgroundWhite").getBoundingClientRect().top;
+	var heightOfInside=doc.querySelector("#backgroundWhite").getBoundingClientRect().height;
+	var insideWidth=rightOfInside-leftOfInside;
+	var insideLeft=leftOfInside;
+	$("#inside").css("left",insideLeft+"px");
+	$("#inside").css("width",insideWidth+"px");
+	$("#inside").css("top",topOfInside+5+"px");
+	$("#inside").css("height",heightOfInside-5+"px");
+	$("#inside").css("display","");
+	$(window).on("resize",function(){
+		var leftOfInside=doc.querySelector("#lefthand").getBoundingClientRect().right;
+		var rightOfInside=doc.querySelector("#righthand").getBoundingClientRect().left;
+		var topOfInside=doc.querySelector("#backgroundWhite").getBoundingClientRect().top;
+		var heightOfInside=doc.querySelector("#backgroundWhite").getBoundingClientRect().height;
+		var insideWidth=rightOfInside-leftOfInside;
+		var insideLeft=leftOfInside;
+		$("#inside").css("left",insideLeft+"px");
+		$("#inside").css("width",insideWidth+"px");
+		$("#inside").css("top",topOfInside+5+"px");
+		$("#inside").css("height",heightOfInside-5+"px");
+});
 	});
 
 
