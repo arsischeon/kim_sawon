@@ -4,6 +4,10 @@
 	<object id="obj" data="/sources/search_gosoo.svg" type="image/svg+xml"></object>
 	<object style="min-width:1080px; " class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
 </div>
+<div>
+
+</div>
+
 
 <style>
 @keyframes down {}
@@ -15,9 +19,6 @@
 </style>
 
 <script>
-var obj=document.getElementById('obj');
-var obj2=document.getElementById('obj2');
-
 function getRule(data) {
 
       var rule;
@@ -45,9 +46,14 @@ function getRule(data) {
   }
 
 
+$(function(){
+	// $("#selectionBackground")
 
 
- // console.log(doc.querySelector('#previous_page_arrow').getBoundingClientRect().bottom);
+
+
+var obj=document.getElementById('obj');
+var obj2=document.getElementById('obj2');
 
 obj.addEventListener("load",function(){
 	//마우스오버시 메뉴가 내려옴
@@ -107,4 +113,5 @@ doc.querySelector('#logo').addEventListener("click",function(){
 
 });
 
+});
 </script>
