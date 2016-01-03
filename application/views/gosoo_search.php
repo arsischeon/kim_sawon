@@ -39,7 +39,7 @@ function makeSentence(name,value){
 		default:
 
 	}
-	$("#offer").text("\"포스터 "+amount+"을 "+size+"크기의 "+paperType+"지 "+paperThick+"g으로 앞면 "+front_color+" "+(back_color=="인쇄안함"?"":"뒷면 "+back_color)+"로 출력하고 , "+coating+"로 코팅해 주세요\"");
+	$("#offer").text("\"포스터 "+amount+"을 "+size+"크기의 "+paperType+"지 "+paperThick+"g으로 앞면 "+front_color+" "+(back_color=="인쇄안함"?"":"뒷면 "+back_color)+"로 출력하고 , "+coating+"으로 코팅해 주세요\"");
 }
 $(function(){
 	$( "#amount" ).selectmenu().selectmenu( "menuWidget" ).addClass( "overflow" );
@@ -122,7 +122,7 @@ option{
 .movingUp{}
 
 </style>
-<div id="inside" class="container" style=" overflow-y:scroll; display:none; position: absolute; ">
+<div id="inside" class="container" style=" overflow:scroll; display:none; position: absolute; ">
 		<div class="row">
 			<div class="col-xs-4" style="padding-right:0px;">
 				<span class="option-label">수량</span>
