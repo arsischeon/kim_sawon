@@ -5,6 +5,7 @@
 	<object style="min-width:1080px; z-index:1000;" class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
 </div>
 <script>
+var thickList=[''];
 var amount="-";
 var paperType="-";
 var paperThick="-";
@@ -22,7 +23,7 @@ function makeSentence(name,value){
 			paperType=value;
 			break;
 		case "paperThick":
-			paperThick=value;
+			paperThick=thickList[value];
 			break;
 		case "size":
 			size=value;
@@ -39,13 +40,40 @@ function makeSentence(name,value){
 		default:
 
 	}
-	$("#offer").text("\"포스터 "+amount+"을 "+size+"크기의 "+paperType+"지 "+paperThick+"g으로 앞면 "+front_color+" "+(back_color=="인쇄안함"?"":"뒷면 "+back_color)+"로 출력하고 , "+coating+"으로 코팅해 주세요\"");
+	$("#offer").text("\"포스터 "+amount+"을 "+size+"크기의 "+paperType+" "+paperThick+"으로 앞면 "+front_color+" "+(back_color=="인쇄안함"?"":"뒷면 "+back_color)+"로 출력하고 , "+coating+"으로 코팅해 주세요\"");
 }
 $(function(){
 	$( "#amount" ).selectmenu().selectmenu( "menuWidget" ).addClass( "overflow" );
 	$( "#amount" ).on( "selectmenuchange", function( event, ui ) { makeSentence("amount",ui.item.label); } );
 	$( "#paperType" ).selectmenu();
-	$( "#paperType" ).on( "selectmenuchange", function( event, ui ) { makeSentence("paperType",ui.item.label); } );
+	$( "#paperType" ).on( "selectmenuchange", function( event, ui ) {
+		makeSentence("paperType",ui.item.label);
+		console.log(ui.item);
+		switch (parseInt(ui.item.value)) {
+				case 1:
+				thickList=['',"100g","120g","150g","180g","200g","210g"];
+				break;
+				case 2:
+				thickList=['',"100g","120g","150g","180g","200g","210g"];
+				break;
+				case 4:
+				thickList=['','210g'];
+				break;
+				case 5:
+				thickList=['','105g','130g','160g','210g'];
+				break;
+				case 6:
+				thickList=['','210g'];
+				break;
+
+		}
+		var cntThickList=thickList.length-1;
+		$( "#thick" ).slider("option","max",thickList.length-1).slider("pips",{
+				first:false,
+				rest: "label",
+				labels: thickList
+		}).slider("pips","refresh");
+	});
 	$( "#coating" ).selectmenu();
 	$( "#coating" ).on( "selectmenuchange", function( event, ui ) { makeSentence("coating",ui.item.label); } );
 	$( "#front_color" ).selectmenu();
@@ -61,13 +89,15 @@ $(function(){
 	}).slider("float",{
 			labels: ["0","1","2"]
 	});
-	var thickList=["",""];
-	$( "#thick" ).slider({max:2}).slider("pips",{
-				step: 50,
-				labels:["0","1","2"],
-				        rest: "label"
-	}).slider("float",{
-			labels: ["0","1","2"]
+
+	$( "#thick" ).slider({max:thickList.length}).slider("pips",{
+			first:false,
+			rest: "label",
+			labels: thickList
+	});
+	$("#thick").on( "slidechange", function( event, ui ) {
+		console.log(ui);
+		makeSentence("paperThick",ui.value);
 	});
 });
 </script>
@@ -153,7 +183,7 @@ option{
 				</select>
 				<div style="     display: inline-block;">
 					<img data-toggle="tooltip" style="padding-top: 5px;" data-placement="bottom" title="여러 업체에서 선택할 수 있는 수량이 다르기 때문에, 우리는 가장 보편적인 수치들을 선택지로 제공하기로 했어. 만약 꼭 다른 수치를 입력하기를 원한다면 고객센터로 연락해줘!" src="/sources/question_icon.png">
-					<span style="display: inline-block; font-size:2px;vertical-align: top;"> 왜 더 많은 단위의<br> 입력이 안되나요? </span>
+					<span style="display: inline-block; font-size:2px;vertical-align: top;"> 왜 더 많은 단위의<br> 입력이 안돼? </span>
 				</div>
 
 			</div>
