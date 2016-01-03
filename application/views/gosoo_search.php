@@ -5,12 +5,53 @@
 	<object style="min-width:1080px; z-index:1000;" class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
 </div>
 <script>
+var amount="-";
+var paperType="-";
+var paperThick="-";
+var size="-";
+var coating="-";
+var front_color="-";
+var back_color="";
+function makeSentence(name,value){
+
+	switch (name) {
+		case "amount":
+			amount=value;
+			break;
+		case "paperType":
+			paperType=value;
+			break;
+		case "paperThick":
+			paperThick=value;
+			break;
+		case "size":
+			size=value;
+			break;
+		case "coating":
+			coating=value;
+			break;
+		case "front_color":
+			front_color=value;
+			break;
+		case "back_color":
+			back_color=value;
+			break;
+		default:
+
+	}
+	$("#offer").text("\"포스터 "+amount+"을 "+size+"크기의 "+paperType+"지 "+paperThick+"g으로 앞면 "+front_color+" "+(back_color=="인쇄안함"?"":"뒷면 "+back_color)+"로 출력하고 , "+coating+"로 코팅해 주세요\"");
+}
 $(function(){
 	$( "#amount" ).selectmenu().selectmenu( "menuWidget" ).addClass( "overflow" );
+	$( "#amount" ).on( "selectmenuchange", function( event, ui ) { makeSentence("amount",ui.item.label); } );
 	$( "#paperType" ).selectmenu();
+	$( "#paperType" ).on( "selectmenuchange", function( event, ui ) { makeSentence("paperType",ui.item.label); } );
 	$( "#coating" ).selectmenu();
+	$( "#coating" ).on( "selectmenuchange", function( event, ui ) { makeSentence("coating",ui.item.label); } );
 	$( "#front_color" ).selectmenu();
+	$( "#front_color" ).on( "selectmenuchange", function( event, ui ) { makeSentence("front_color",ui.item.label); } );
 	$( "#back_color" ).selectmenu();
+	$( "#back_color" ).on( "selectmenuchange", function( event, ui ) { makeSentence("back_color",ui.item.label); } );
 	$('[data-toggle="tooltip"]').tooltip();
 	var sizeList=["",""];
 	$( "#size" ).slider({max:2}).slider("pips",{
@@ -52,7 +93,7 @@ $(function(){
 	margin-right:3px;
 }
 #amount-button{
-	width: 6em !important;
+	width: 8em !important;
 }
 #paperType-button,#coating-button,#front_color-button,#back_color-button{
 	width: 9em !important;
@@ -81,7 +122,7 @@ option{
 .movingUp{}
 
 </style>
-<div id="inside" class="container" style="overflow-y:scroll; display:none; position: absolute; ">
+<div id="inside" class="container" style=" overflow-y:scroll; display:none; position: absolute; ">
 		<div class="row">
 			<div class="col-xs-4" style="padding-right:0px;">
 				<span class="option-label">수량</span>
@@ -188,7 +229,7 @@ option{
 		</div>
 		<div class="row">
 			<div class="col-xs-12">
-			<span style="font-size:16px; text-align:center; display: block;">"포스터 -부를 -크기의 -지 -g으로 -도 -면 출력하고, -로 코팅해 주세요"</span>
+			<span id="offer" style="font-size:16px; text-align:center; display: block;"></span>
 		</div>
 		</div>
 		<div class="row">
