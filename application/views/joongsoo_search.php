@@ -48,8 +48,19 @@ $(function(){
 option{
 	text-align: center;
 }
-</style>
+.paper-option-sub-text{
+	display: block;
+	text-align: center;
+	font-size: 11px;
+	color:#8C8980;
+	padding-top:5px;
+}
+.image-paper{
 
+}
+</style>
+<div id="paper_popup">
+</div>
 
 <div id="inside" class="container" style=" display:none; position: absolute; ">
 	<div class="row">
@@ -119,7 +130,48 @@ option{
 			<span class="option-label">종이 재질</span>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-xs-2">
+			<img id="paper1" class="img img-responsive" src="/sources/paper1.jpg">
+			<span class="paper-option-sub-text">"광택이 있고<br>가격대비 색감이<br>좋아."</span>
+		</div>
+		<div class="col-xs-2">
+			<img id="paper2" class="img img-responsive" src="/sources/paper2.jpg">
+			<span class="paper-option-sub-text">"무광택이고<br>가격대비 색감이<br>좋아."</span>
+		</div>
+		<div class="col-xs-2">
+			<img id="paper3" class="img img-responsive" src="/sources/paper3.jpg">
+			<span class="paper-option-sub-text">"일반 복사용지야.<br>표면이 매끄럽고<br>가격이 저렴해"</span>
+		</div>
+		<div class="col-xs-2">
+			<img id="paper4" class="img img-responsive" src="/sources/paper4.jpg">
+			<span class="paper-option-sub-text">"은은한 광택이 돌고<br>종이 본연의 촉감이<br>살아있어."</span>
+		</div>
+		<div class="col-xs-2">
+			<img id="paper5" class="img img-responsive" src="/sources/paper5.jpg">
+			<span class="paper-option-sub-text">"색감 표현이<br>훌륭하고 약간의<br>무늬가 고급스러워"</span>
+		</div>
+		<div class="col-xs-2">
+			<img id="paper6" class="img img-responsive" src="/sources/paper6.jpg">
+			<span class="paper-option-sub-text">"종이 질감이<br>살아있어서 색감이<br>풍부하게 표현돼"</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<span class="option-label">종이크기</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<img src="/sources/magnify.png" class="img img-responsive">
+		</div>
+		<div class="col-xs-4">
+		</div>
+		<div class="col-xs-4">
+		</div>
+	</div>
 
+	</div>
 </div>
 </div>
 
@@ -142,7 +194,7 @@ obj.addEventListener("load",function(){
 	$("#inside").css("top",topOfInside+20+"px");
 	$("#inside").css("height",heightOfInside-35+"px");
 	$("#inside").css("display","");
-	$("#inside2").css("width",insideWidth+"px");
+	$("#inside2").css("width",insideWidth-30+"px");
 	$("#inside2").css("height",heightOfInside-55+"px");
 	$(window).on("resize",function(){
 		var leftOfInside=doc.querySelector("#lefthand").getBoundingClientRect().right;
@@ -155,7 +207,7 @@ obj.addEventListener("load",function(){
 		$("#inside").css("width",insideWidth+"px");
 		$("#inside").css("top",topOfInside+20+"px");
 		$("#inside").css("height",heightOfInside-35+"px");
-		$("#inside2").css("width",insideWidth+"px");
+		$("#inside2").css("width",insideWidth-30+"px");
 		$("#inside2").css("height",heightOfInside-55+"px");
 	});
 	});

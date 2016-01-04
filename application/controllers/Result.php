@@ -8,5 +8,10 @@ class Result extends CI_Controller {
     $this->load->view('result');
     $this->load->view('footer');
   }
+  public function temp(){
+    $this->load->view('header');
+    $this->load->view('result_temp');
+    $this->load->view('footer');
+  }
 
 }
