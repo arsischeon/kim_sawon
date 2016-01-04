@@ -152,7 +152,7 @@ option{
 				.movingUp{}
 
 					</style>
-					<div id="inside" class="container" style=" overflow-y:scroll; overflow-x:none; display:none; position: absolute; ">
+					<div id="inside" class="container" style=" overflow-y:auto; overflow-x:hidden; display:none; position: absolute; ">
 						<div class="row">
 							<div class="col-xs-4" style="padding-right:0px;">
 								<span class="option-label">수량</span>
