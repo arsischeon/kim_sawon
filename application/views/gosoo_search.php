@@ -12,7 +12,7 @@ var paperThick="-";
 var size="-";
 var coating="-";
 var front_color="-";
-var back_color="";
+var back_color="인쇄안함";
 function makeSentence(name,value){
 
 	switch (name) {
