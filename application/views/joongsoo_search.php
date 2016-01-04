@@ -1,14 +1,64 @@
 
 
 <div style="min-width:1080px">
-	<object id="obj" data="/sources/search_joongsoo.svg" type="image/svg+xml"></object>
+	<object id="obj" data="/sources/search_joongsoo.svg"  type="image/svg+xml"></object>
 	<object style="min-width:1080px; " class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
 </div>
+<img id="typecc" src="/sources/chuchun.png" style="width:50px; z-index:300; position:absolute; display:none">
+<img id="sizecc" src="/sources/chuchun.png" style="width:80px; z-index:300; position:absolute; display:none">
 <script>
-	var thickList=[''];
-$(function(){
+	var listing=["paper2","a3"];
+	function chuchun(lists){
+		for(var i=0;i<lists.length;i++){
+			var target=$("#"+lists[i]);
+			var cc_top=target.offset().top+target.height()*0.7;
+			var cc_left=target.offset().left;
+			if(i==0){
+				$("#typecc").css("top",cc_top+"px");
+				$("#typecc").css("left",cc_left+"px");
+				$("#typecc").css("display","");
+			}else{
+				$("#sizecc").css("top",cc_top+"px");
+				$("#sizecc").css("left",cc_left+"px");
+				$("#sizecc").css("display","");
+			}
+		}
+		if ($("#typecc").offset().top<$("#inside2").offset().top) {
+			$("#typecc").css("display","none");
+		}
+		if ($("#typecc").offset().top+$("#typecc").height()>$("#inside2").offset().top+$("#inside2").height()) {
+			$("#typecc").css("display","none");
+		}
+		if ($("#sizecc").offset().top<$("#inside2").offset().top) {
+			$("#sizecc").css("display","none");
+		}
+		if ($("#sizecc").offset().top+$("#sizecc").height()>$("#inside2").offset().top+$("#inside2").height()) {
+			$("#sizecc").css("display","none");
+		}
 
+	}
+	var thickList=[''];
+
+	$(function(){
+
+		$("#inside2").scroll(function(){
+			chuchun(listing);
+		});
 		$( "#purpose" ).selectmenu();
+		$( "#purpose" ).on( "selectmenuchange", function( event, ui ) {
+			switch(parseInt(ui.item.value)){
+				case 1:
+					listing=["paper1","a2"];
+				break;
+				case 2:
+					listing=["paper2","a1"];
+				break;
+				case 3:
+					listing=["paper2","a1"];
+				break;
+			}
+			chuchun(listing);
+		 });
 		$( "#amount" ).selectmenu().selectmenu( "menuWidget" ).addClass( "overflow" );
 		$( "#amount" ).on( "selectmenuchange", function( event, ui ) { makeSentence("amount",ui.item.label); } );
 		$( "#coating" ).selectmenu();
@@ -66,7 +116,7 @@ option{
 .paper-option-sub-text{
 	display: block;
 	text-align: center;
-	font-size: 11px;
+	font-size: 10px;
 	color:#8C8980;
 	padding-top:5px;
 }
@@ -98,6 +148,18 @@ option{
 	color:#8C8980;
 	font-size:15px;
 }
+input[type="radio"] {
+    position:absolute;
+    clip: rect(0,0,0,0);
+    clip: rect(0 0 0 0);
+}
+input[type="radio"] + label::before {
+	  vertical-align: -webkit-baseline-middle;
+    content: url('/sources/radio_no.png');
+}
+input[type="radio"]:checked + label::before {
+    content: url('/sources/radio_yes.png');
+}
 </style>
 <div id="paper_popup">
 </div>
@@ -107,14 +169,18 @@ option{
 		<div class="col-xs-4">
 			<span class="option-label">무슨 용도를 위해 출력하시나요?</span>
 		</div>
-		<div class="col-xs-8">
+		<div class="col-xs-4" style="padding-left:0px;">
 			<select name="purpose" id="purpose">
 				<option value=""></option>
-				<option value="100">100장</option>
-				<option value="200">200장</option>
-				<option value="300">300장</option>
-				<option value="400">400장</option>
+				<option value="1">동아리 포스터</option>
+				<option value="2">야외 부착</option>
+				<option value="3">실내 부착</option>
 			</select>
+		</div>
+		<div class="col-xs-4" style="border-left: 2px solid #DEDDDD;">
+			<div style="float:left;">	<span class="option-label">검색 결과 개수:</span></div>
+			<div style="border-bottom: 2px solid #f3c262; display: inline-block; width:80px; text-align:center; font-size:17px;"> 30</div>
+			<div style="display: inline-block; "><span class="option-label">개</span></div>
 		</div>
 	</div>
 	<div class="container" id="inside2" style="padding:0px; overflow-y:auto; overflow-x:hidden; ">
@@ -210,11 +276,11 @@ option{
 		</div>
 	</div>
 	<div class="row" style="margin-top:0px;">
-		<div class="container-fluid" style="padding-top: 1%; padding-bottom: 1%; margin-top:0px !important; margin: 20px 20px; border-radius:4px; border: 3px solid #F3C262; border-top-left-radius">
+		<div class="container-fluid" style="padding-top: 1%; padding-bottom: 1%; margin-top:0px !important; margin: 20px 20px; border-radius:7px; border: 4px solid #F3C262; border-top-left-radius">
 			<div class="row" style="padding:1%; margin-top:0px;">
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img src="/sources/a3.png" class="img img-responsive">
+						<img id="a3" src="/sources/a3.png" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">A3</span>
@@ -222,7 +288,7 @@ option{
 				</div>
 				<div class="col-xs-4 papersize1 ">
 					<div class="papersize">
-						<img src="/sources/a2.png" class="img img-responsive">
+						<img id="a2" src="/sources/a2.png" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">A2</span>
@@ -230,7 +296,7 @@ option{
 				</div>
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img src="/sources/a1.png" class="img img-responsive">
+						<img id="a1" src="/sources/a1.png" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">A1</span>
@@ -240,7 +306,7 @@ option{
 			<div class="row" style=" margin-top:0px;">
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img src="/sources/b3.png" class="img img-responsive">
+						<img id="b3"  src="/sources/b3.png" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">B3</span>
@@ -248,7 +314,7 @@ option{
 				</div>
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img src="/sources/b2.png" class="img img-responsive">
+						<img id="b2" src="/sources/b2.png" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">B2</span>
@@ -259,7 +325,7 @@ option{
 			<div class="row" style="margin-top:0px;">
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img src="/sources/8j.png" class="img img-responsive">
+						<img id="8j" src="/sources/8j.png" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">8절</span>
@@ -267,7 +333,7 @@ option{
 				</div>
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img src="/sources/4j.png" class="img img-responsive">
+						<img id="4j" src="/sources/4j.png" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">4절</span>
@@ -275,7 +341,7 @@ option{
 				</div>
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img src="/sources/2j.png" class="img img-responsive">
+						<img id="2j" src="/sources/2j.png" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">2절</span>
@@ -285,7 +351,7 @@ option{
 			<div class="row" style="margin-top:0px;">
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img src="/sources/g4j.png" class="img img-responsive">
+						<img id="g4j" src="/sources/g4j.png" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">국4절</span>
@@ -293,7 +359,7 @@ option{
 				</div>
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img src="/sources/g2j.png" class="img img-responsive">
+						<img id="g2j" src="/sources/g2j.png" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">국2절</span>
@@ -301,7 +367,7 @@ option{
 				</div>
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img src="/sources/gj.png" class="img img-responsive">
+						<img id="gj" src="/sources/gj.png" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">국전</span>
@@ -325,10 +391,46 @@ option{
 	<div class="row">
 		<div class="col-xs-4">
 			<span class="option-label">인쇄면</span>
-
+			<div style="margin-top: 10px;">
+				<input name="side" id="single" type="radio"><label style="padding-left:15px; font-weight: normal; font-size:14px; " class="option-label" for="single">단면</label>
+				<input name="side" id="double" type="radio"><label style="padding-left:15px; font-weight: normal; font-size:14px; " class="option-label" for="double">양면</label>
+			</div>
 		</div>
 		<div class="col-xs-4">
+			<span class="option-label">도수</span>
+			<div style="margin-top:10px;">
+			<div style="width:48%; float:left;">
+				<img class="img img-responsive" src="/sources/1do.png">
+				<span class="paper-text" style="text-align:center; display:block;">1도(흑백)</span>
+				<span style="font-size:13px; text-align:center; 	color:#8C8980; display:block;">“흑백 인쇄물에<br>적합해. 단, 섬세한<br>디자인의 흑백<br>출력물은 4도를<br>권장할게.”</span>
+			</div>
+			<div style="width:48%; float:right; ">
+				<img class="img img-responsive" src="/sources/4do.png">
+				<span class="paper-text" style="text-align:center; display:block;">4도</span>
+				<span style="font-size:13px; text-align:center; 	color:#8C8980; display:block;">“컬러 인쇄물은<br>4도(CMYK)로<br>출력해야 해.<br>CMYK로 작업하는<br>것 잊지 말고!”</span>
+			</div>
+		</div>
+		</div>
 
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<hr style="border-top: 2px solid #DEDDDD; margin-top: 0px; ">
+		</div>
+	</div>
+	<div class="row" style="margin-top:0px;">
+		<div class="col-xs-12">
+			<span id="offer" style="font-size:16px; text-align:center; display: block;">포스터 -을 -크기의 - -으로 앞면 -로 출력하고, -으로 코팅해 주세요</span>
+		</div>
+	</div>
+
+	<div class="row" style="margin-top:10px;">
+		<div class="col-xs-4">
+		</div>
+		<div class="col-xs-4">
+			<img style="height:32px; text-align:center; display:block;" src="/sources/submit_button.png">
+		</div>
+		<div class="col-xs-4">
 		</div>
 	</div>
 	</div>
@@ -357,7 +459,7 @@ obj.addEventListener("load",function(){
 	$("#inside2").css("width",insideWidth-20+"px");
 	$("#inside2").css("height",heightOfInside-70+"px");
 	$("#inside2").css("margin-top","10px");
-	$("#inside2").css("padding-right","10px");
+	$("#inside2").css("padding-right","20px");
 	$(window).on("resize",function(){
 		var leftOfInside=doc.querySelector("#lefthand").getBoundingClientRect().right;
 		var rightOfInside=doc.querySelector("#righthand").getBoundingClientRect().left;

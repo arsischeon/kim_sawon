@@ -257,14 +257,15 @@ option{
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<span id="offer" style="font-size:16px; text-align:center; display: block;">포스터 -을 -크기의 - -으로 앞면 -로 출력하고, -으로 코팅해 주세요</span>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-12">
 								<hr style="border-top: 2px solid #DEDDDD; margin-top: 0px; ">
 							</div>
 						</div>
+						<div class="row" style="margin-top:0px">
+							<div class="col-xs-12">
+								<span id="offer" style="font-size:16px; text-align:center; display: block;">포스터 -을 -크기의 - -으로 앞면 -로 출력하고, -으로 코팅해 주세요</span>
+							</div>
+						</div>
+
 						<div class="row" style="margin-top:14px;">
 							<div class="col-xs-4">
 								<div style="float:left;">	<span class="option-label">검색 결과 개수:</span></div>
