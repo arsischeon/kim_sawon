@@ -11,6 +11,7 @@ class Result extends CI_Controller {
   public function temp(){
     $this->load->model('search');
     $data['resultSimmilar']=$this->search->gosuSimmilar();
+    $data['resultExact']=$this->search->gosuExact();
     $this->load->view('header');
     $this->load->view('result_temp',$data);
     $this->load->view('footer');
