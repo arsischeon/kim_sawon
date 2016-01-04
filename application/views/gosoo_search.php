@@ -126,7 +126,7 @@ $(function(){
 	width: 8em !important;
 }
 #paperType-button,#coating-button,#front_color-button,#back_color-button{
-	width: 9em !important;
+	width: 8em !important;
 }
 .overflow { height: 200px; }
 .ui-selectmenu-button, .ui-button, .ui-widget{
@@ -154,7 +154,7 @@ option{
 					</style>
 					<div id="inside" class="container" style=" overflow-y:auto; overflow-x:hidden; display:none; position: absolute; ">
 						<div class="row">
-							<div class="col-xs-4" style="padding-right:0px;">
+							<div class="col-xs-5" style="width:38%; padding-right:0px;">
 								<span class="option-label">수량</span>
 								<select name="amount" id="amount">
 									<option value=""></option>
@@ -187,7 +187,7 @@ option{
 								</div>
 
 							</div>
-							<div class="col-xs-4">
+							<div class="col-xs-4" style="width:32%;">
 								<span class="option-label">종이재질</span>
 								<select name="paperType" id="paperType">
 									<option value=""></option>
@@ -199,7 +199,7 @@ option{
 									<option value="6">아르떼</option>
 								</select>
 							</div>
-							<div class="col-xs-4">
+							<div class="col-xs-3" style="width:30%;">
 								<span class="option-label">코팅</span>
 								<select name="coating" id="coating">
 									<option value="">코팅없음</option>
