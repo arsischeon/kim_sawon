@@ -9,8 +9,11 @@ class Result extends CI_Controller {
     $this->load->view('footer');
   }
   public function temp(){
+    $this->load->model('search');
+    $resultSimmilar=$this->gosuSimmilar();
+
     $this->load->view('header');
-    $this->load->view('result_temp');
+    $this->load->view('result_temp',$resultSimmilar);
     $this->load->view('footer');
   }
 

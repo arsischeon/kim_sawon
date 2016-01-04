@@ -58,6 +58,12 @@ option{
 .image-paper{
 
 }
+.col-xs-4.papersize{
+	background: red;
+	border-radius: 4px;
+	height: 40px;
+	margin: 5px 5px;
+}
 </style>
 <div id="paper_popup">
 </div>
@@ -132,27 +138,27 @@ option{
 	</div>
 	<div class="row">
 		<div class="col-xs-2">
-			<img id="paper1" class="img img-responsive" src="/sources/paper1.jpg">
+			<img id="paper1" class="img img-responsive" src="/sources/paperR1.jpg">
 			<span class="paper-option-sub-text">"광택이 있고<br>가격대비 색감이<br>좋아."</span>
 		</div>
 		<div class="col-xs-2">
-			<img id="paper2" class="img img-responsive" src="/sources/paper2.jpg">
+			<img id="paper2" class="img img-responsive" src="/sources/paperR2.jpg">
 			<span class="paper-option-sub-text">"무광택이고<br>가격대비 색감이<br>좋아."</span>
 		</div>
 		<div class="col-xs-2">
-			<img id="paper3" class="img img-responsive" src="/sources/paper3.jpg">
+			<img id="paper3" class="img img-responsive" src="/sources/paperR3.jpg">
 			<span class="paper-option-sub-text">"일반 복사용지야.<br>표면이 매끄럽고<br>가격이 저렴해"</span>
 		</div>
 		<div class="col-xs-2">
-			<img id="paper4" class="img img-responsive" src="/sources/paper4.jpg">
+			<img id="paper4" class="img img-responsive" src="/sources/paperR4.jpg">
 			<span class="paper-option-sub-text">"은은한 광택이 돌고<br>종이 본연의 촉감이<br>살아있어."</span>
 		</div>
 		<div class="col-xs-2">
-			<img id="paper5" class="img img-responsive" src="/sources/paper5.jpg">
+			<img id="paper5" class="img img-responsive" src="/sources/paperR5.jpg">
 			<span class="paper-option-sub-text">"색감 표현이<br>훌륭하고 약간의<br>무늬가 고급스러워"</span>
 		</div>
 		<div class="col-xs-2">
-			<img id="paper6" class="img img-responsive" src="/sources/paper6.jpg">
+			<img id="paper6" class="img img-responsive" src="/sources/paperR6.jpg">
 			<span class="paper-option-sub-text">"종이 질감이<br>살아있어서 색감이<br>풍부하게 표현돼"</span>
 		</div>
 	</div>
@@ -163,11 +169,23 @@ option{
 	</div>
 	<div class="row">
 		<div class="col-xs-4">
-			<img src="/sources/magnify.png" class="img img-responsive">
+			<img src="/sources/joongsoo_mw.png" class="img img-responsive">
 		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-8">
+
 		</div>
-		<div class="col-xs-4">
+	</div>
+	<div class="row" style="margin-top:0px;">
+		<div class="container-fluid" style=" margin-top:0px !important; margin: 20px 20px; border-radius:4px; border: 3px solid #F3C262; border-top-left-radius">
+			<div class="row">
+				<div class="col-xs-4 papersize">
+						ddd
+				</div>
+				<div class="col-xs-4 papersize">
+				</div>
+				<div class="col-xs-4 papersize">
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -191,11 +209,13 @@ obj.addEventListener("load",function(){
 	var insideLeft=leftOfInside;
 	$("#inside").css("left",insideLeft+"px");
 	$("#inside").css("width",insideWidth+"px");
-	$("#inside").css("top",topOfInside+20+"px");
+	$("#inside").css("top",topOfInside+"px");
 	$("#inside").css("height",heightOfInside-35+"px");
 	$("#inside").css("display","");
-	$("#inside2").css("width",insideWidth-30+"px");
-	$("#inside2").css("height",heightOfInside-55+"px");
+	$("#inside2").css("width",insideWidth-20+"px");
+	$("#inside2").css("height",heightOfInside-70+"px");
+	$("#inside2").css("margin-top","10px");
+	$("#inside2").css("padding-right","10px");
 	$(window).on("resize",function(){
 		var leftOfInside=doc.querySelector("#lefthand").getBoundingClientRect().right;
 		var rightOfInside=doc.querySelector("#righthand").getBoundingClientRect().left;
@@ -205,9 +225,9 @@ obj.addEventListener("load",function(){
 		var insideLeft=leftOfInside;
 		$("#inside").css("left",insideLeft+"px");
 		$("#inside").css("width",insideWidth+"px");
-		$("#inside").css("top",topOfInside+20+"px");
+		$("#inside").css("top",topOfInside+"px");
 		$("#inside").css("height",heightOfInside-35+"px");
-		$("#inside2").css("width",insideWidth-30+"px");
+		$("#inside2").css("width",insideWidth-20+"px");
 		$("#inside2").css("height",heightOfInside-55+"px");
 	});
 	});
