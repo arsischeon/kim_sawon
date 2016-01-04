@@ -5,13 +5,20 @@
 	<object style="min-width:1080px; " class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
 </div>
 <script>
+	var thickList=[''];
 $(function(){
+
 		$( "#purpose" ).selectmenu();
 		$( "#amount" ).selectmenu().selectmenu( "menuWidget" ).addClass( "overflow" );
 		$( "#amount" ).on( "selectmenuchange", function( event, ui ) { makeSentence("amount",ui.item.label); } );
 		$( "#coating" ).selectmenu();
 		$( "#coating" ).on( "selectmenuchange", function( event, ui ) { makeSentence("coating",ui.item.label); } );
 		$('[data-toggle="tooltip"]').tooltip();
+		$( "#thick" ).slider({max:thickList.length}).slider("pips",{
+			first:false,
+			rest: "label",
+			labels: thickList
+		});
 });
 
 </script>
@@ -25,6 +32,14 @@ $(function(){
 		font-size:16px;
 		color:#66635A;
 		margin-right:3px;
+}
+.ui-slider-handle{
+	background: url("/sources/slider_button.png") 50% 50%  !important;
+	width: 2em !important;
+	height: 2em !important;
+	top: -.6em !important;
+	border: 0px !important;
+	margin-left: -.9em !important;
 }
 #amount-button{
 	width: 8em !important;
@@ -55,14 +70,33 @@ option{
 	color:#8C8980;
 	padding-top:5px;
 }
+
 .image-paper{
 
 }
-.col-xs-4.papersize{
-	background: red;
-	border-radius: 4px;
-	height: 40px;
-	margin: 5px 5px;
+
+.col-xs-4.papersize1{
+	width: 31.3%;
+	margin: 1% 1%;
+	margin-top:0px;
+	margin-bottom:0px;
+	padding:0px 0px 0px 0px;
+}
+.papersize{
+		width:100%;
+		/*padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+		background: #D1D2D1;
+		border-radius: 4px;*/
+}
+
+.paper-text{
+	display: block;
+	text-align: center;
+	color:#8C8980;
+	font-size:15px;
 }
 </style>
 <div id="paper_popup">
@@ -176,19 +210,127 @@ option{
 		</div>
 	</div>
 	<div class="row" style="margin-top:0px;">
-		<div class="container-fluid" style=" margin-top:0px !important; margin: 20px 20px; border-radius:4px; border: 3px solid #F3C262; border-top-left-radius">
-			<div class="row">
-				<div class="col-xs-4 papersize">
-						ddd
+		<div class="container-fluid" style="padding-top: 1%; padding-bottom: 1%; margin-top:0px !important; margin: 20px 20px; border-radius:4px; border: 3px solid #F3C262; border-top-left-radius">
+			<div class="row" style="padding:1%; margin-top:0px;">
+				<div class="col-xs-4 papersize1">
+					<div class="papersize">
+						<img src="/sources/a3.png" class="img img-responsive">
+					</div>
+					<div>
+						<span class="paper-text">A3</span>
+					</div>
 				</div>
-				<div class="col-xs-4 papersize">
+				<div class="col-xs-4 papersize1 ">
+					<div class="papersize">
+						<img src="/sources/a2.png" class="img img-responsive">
+					</div>
+					<div>
+						<span class="paper-text">A2</span>
+					</div>
 				</div>
-				<div class="col-xs-4 papersize">
+				<div class="col-xs-4 papersize1">
+					<div class="papersize">
+						<img src="/sources/a1.png" class="img img-responsive">
+					</div>
+					<div>
+						<span class="paper-text">A1</span>
+					</div>
+				</div>
+			</div>
+			<div class="row" style=" margin-top:0px;">
+				<div class="col-xs-4 papersize1">
+					<div class="papersize">
+						<img src="/sources/b3.png" class="img img-responsive">
+					</div>
+					<div>
+						<span class="paper-text">B3</span>
+					</div>
+				</div>
+				<div class="col-xs-4 papersize1">
+					<div class="papersize">
+						<img src="/sources/b2.png" class="img img-responsive">
+					</div>
+					<div>
+						<span class="paper-text">B2</span>
+					</div>
+				</div>
+
+			</div>
+			<div class="row" style="margin-top:0px;">
+				<div class="col-xs-4 papersize1">
+					<div class="papersize">
+						<img src="/sources/8j.png" class="img img-responsive">
+					</div>
+					<div>
+						<span class="paper-text">8절</span>
+					</div>
+				</div>
+				<div class="col-xs-4 papersize1">
+					<div class="papersize">
+						<img src="/sources/4j.png" class="img img-responsive">
+					</div>
+					<div>
+						<span class="paper-text">4절</span>
+					</div>
+				</div>
+				<div class="col-xs-4 papersize1">
+					<div class="papersize">
+						<img src="/sources/2j.png" class="img img-responsive">
+					</div>
+					<div>
+						<span class="paper-text">2절</span>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin-top:0px;">
+				<div class="col-xs-4 papersize1">
+					<div class="papersize">
+						<img src="/sources/g4j.png" class="img img-responsive">
+					</div>
+					<div>
+						<span class="paper-text">국4절</span>
+					</div>
+				</div>
+				<div class="col-xs-4 papersize1">
+					<div class="papersize">
+						<img src="/sources/g2j.png" class="img img-responsive">
+					</div>
+					<div>
+						<span class="paper-text">국2절</span>
+					</div>
+				</div>
+				<div class="col-xs-4 papersize1">
+					<div class="papersize">
+						<img src="/sources/gj.png" class="img img-responsive">
+					</div>
+					<div>
+						<span class="paper-text">국전</span>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
+	<div class="row">
+		<div class="col-xs-12">
+			<span class="option-label">종이 두께</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12" style="padding-left:30px;">
+			<div id="thick">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<span class="option-label">인쇄면</span>
+
+		</div>
+		<div class="col-xs-4">
+
+		</div>
+	</div>
 	</div>
 </div>
 </div>
