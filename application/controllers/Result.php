@@ -10,7 +10,7 @@ class Result extends CI_Controller {
   }
   public function temp(){
     $this->load->model('search');
-    $resultSimmilar=$this->gosuSimmilar();
+    $resultSimmilar=$this->search->gosuSimmilar();
 
     $this->load->view('header');
     $this->load->view('result_temp',$resultSimmilar);
