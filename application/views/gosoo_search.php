@@ -6,6 +6,7 @@
 </div>
 <script>
 var thickList=[''];
+var orderList=[''];
 var amount="-";
 var paperType="-";
 var paperThick="-g";
@@ -51,19 +52,28 @@ $(function(){
 		console.log(ui.item);
 		switch (parseInt(ui.item.value)) {
 			case 1:
-			thickList=['',"100g","120g","150g","180g","200g","210g"];
+			thickList=['',"100g","120g","150g","180g","200g","250g","300"];
+			orderList=[0,1,2,3,4,5,6,8];
 			break;
 			case 2:
-			thickList=['',"100g","120g","150g","180g","200g","210g"];
+			thickList=['',"100g","120g","150g","180g","200g","250g","300"];
+			orderList=[0,1,2,3,4,5,6,8];
+			break;
+			case 3:
+			thickList=['',"80g","100g","120g","150g","180g","200g","220g","250g","260","300",""];
+			orderList=[0,10,1,2,3,4,5,16,6,17,8];
 			break;
 			case 4:
 			thickList=['','210g'];
+			orderList=[0,14];
 			break;
 			case 5:
-			thickList=['','105g','130g','160g','210g'];
+			thickList=['','105g','130g','160g',"190g",'210g',"240g"];
+			orderList=[0,9,11,12,13,14,15];
 			break;
 			case 6:
 			thickList=['','210g'];
+			orderList=[0,14];
 			break;
 
 		}

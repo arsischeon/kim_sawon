@@ -38,7 +38,35 @@
 
 	}
 	var thickList=[''];
-
+	var amount="-";
+	var paperType="-";
+	var paperThick="-g";
+	var size="-";
+	var coating="-";
+	var side="";
+	function makeSentence(name,value){
+		switch (name) {
+			case "amount":
+			amount=value;
+			break;
+			case "paperType":
+			paperType=value;
+			break;
+			case "paperThick":
+			paperThick=thickList[value];
+			break;
+			case "size":
+			size=value;
+			break;
+			case "coating":
+			coating=value;
+			break;
+			case "side":
+			side=value;
+			break;
+		}
+		$("#offer").text("\"포스터 "+amount+"을 "+size+"크기의 "+paperType+" "+paperThick+"으로 "+(side=="1"?"단면":"양면")+"으로 출력하고 , "+coating+"으로 코팅해 주세요\"");
+	}
 	$(function(){
 
 		$("#inside2").scroll(function(){
@@ -69,10 +97,52 @@
 			rest: "label",
 			labels: thickList
 		});
+
+		//papertype 바뀌었을 때
+	// 	switch (parseInt(ui.item.value)) {
+	// 		case 1:
+	// 		thickList=['',"100g","120g","150g","180g","200g","250g","300"];
+	// 		orderList=[0,1,2,3,4,5,6,8];
+	// 		break;
+	// 		case 2:
+	// 		thickList=['',"100g","120g","150g","180g","200g","250g","300"];
+	// 		orderList=[0,1,2,3,4,5,6,8];
+	// 		break;
+	// 		case 3:
+	// 		thickList=['',"80g","100g","120g","150g","180g","200g","220g","250g","260","300",""];
+	// 		orderList=[0,10,1,2,3,4,5,16,6,17,8];
+	// 		break;
+	// 		case 4:
+	// 		thickList=['','210g'];
+	// 		orderList=[0,14];
+	// 		break;
+	// 		case 5:
+	// 		thickList=['','105g','130g','160g',"190g",'210g',"240g"];
+	// 		orderList=[0,9,11,12,13,14,15];
+	// 		break;
+	// 		case 6:
+	// 		thickList=['','210g'];
+	// 		orderList=[0,14];
+	// 		break;
+	//
+	// 	}
+	// 	var cntThickList=thickList.length-1;
+	// 	$( "#thick" ).slider("option","max",thickList.length-1).slider("pips",{
+	// 		first:false,
+	// 		rest: "label",
+	// 		labels: thickList
+	// 	}).slider("pips","refresh");
+	// });
+
+
+
 });
 
 </script>
 <style>
+.ui-selectmenu-open{
+	z-index: 400;
+}
 @keyframes down {}
 @keyframes up {}
 .initial{}
