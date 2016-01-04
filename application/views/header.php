@@ -15,6 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="/sources/jquery-ui-slider-pips.css" rel="stylesheet" >
 
   <script src="https://code.jquery.com/ui/1.12.0-beta.1/jquery-ui.min.js" crossorigin="anonymous"></script>
+    <script src="/sources/common.js" ></script>
   <script src="/sources/jquery-ui-slider-pips.js"></script>
 
 
