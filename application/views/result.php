@@ -14,12 +14,12 @@
    <g id="dummy-3" data-name="dummy">
       <line id="sline" class="cls-1" x1="97.27" y1="209.04" x2="1335.96" y2="209.04"/>
 			  <?php
-				$cnt=0
+				$cnt=0;
 				foreach ($resultExact->result_array() as $result): ?>
 					<?php if($cnt++==0){?>
       <text class="cls-2" transform="translate(312.11 123.7)">
          <? echo $result['site_name'];?>
-         <tspan x="0" y="26.4"><? echo $result['site_phone']." "$result['site_url'];?></tspan>
+         <tspan x="0" y="26.4"><? echo $result['site_phone']." ".$result['site_url'];?></tspan>
          <tspan x="0" y="52.8">검색된 옵션</tspan>
       </text>
 
