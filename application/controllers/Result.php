@@ -4,8 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Result extends CI_Controller {
 
   public function lists(){
+    $this->load->model('search');
+    $data['resultSimmilar']=$this->search->gosuSimmilar();
+    $data['resultExact']=$this->search->gosuExact();
     $this->load->view('header');
-    $this->load->view('result');
+    $this->load->view('result',$data);
     $this->load->view('footer');
   }
   public function temp(){
