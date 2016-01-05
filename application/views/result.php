@@ -19,11 +19,11 @@
 					<?php if($cnt++==0){?>
       <text class="cls-2" transform="translate(312.11 123.7)">
          <? echo $result['site_name'];?>
-         <tspan x="0" y="26.4"><? echo $result['site_phone']." ".$result['site_url'];?></tspan>
+         <tspan x="0" y="26.4"><? echo $result['site_phone']." ".$result['delivery'];?></tspan>
          <tspan x="0" y="52.8">검색된 옵션</tspan>
       </text>
 
-      <text class="cls-3" transform="translate(312.11 75.8)"><?echo $result['price'];?></text>
+      <text class="cls-3" transform="translate(312.11 75.8)"><?echo $result['price']."원";?></text>
 
       <circle class="cls-4" cx="170.85" cy="108.62" r="66.9"/>
    </g>
@@ -37,7 +37,8 @@
       <path class="cls-6" d="M231.06,156.69c0-3.76-.06-7.23,0-10.68,0-1.56-.29-2.3-1-2.87H111.62c-0.72.56-1,1.3-1,2.87,0.09,3.45,0,6.92,0,10.68h0v11.07H231.09V156.69h0Z"/>
       <text class="cls-8" transform="translate(150.5 161.12)">최저가</text>
    </g>
-   <g id="site_barogagi" data-name="site barogagi">
+
+   <g onclick="location.href='<? echo $result['site_url'];?>' id="site_barogagi" data-name="site barogagi">
       <rect class="cls-6" x="1137.78" y="47.15" width="198.18" height="87.6" rx="10.45" ry="10.45"/>
       <text class="cls-9" transform="translate(1206.51 86.85)">
          사이트
