@@ -7,7 +7,7 @@
 <img id="typecc" src="/sources/chuchun.png" style="width:50px; z-index:300; position:absolute; display:none">
 <img id="sizecc" src="/sources/chuchun.png" style="width:80px; z-index:300; position:absolute; display:none">
 <script>
-	var listing=["paper2","a3"];
+	var listing=["",""];
 	function chuchun(lists){
 		for(var i=0;i<lists.length;i++){
 			var target=$("#"+lists[i]);
@@ -44,6 +44,7 @@
 	var size="-";
 	var coating="-";
 	var side="";
+	var color="";
 	function makeSentence(name,value){
 		switch (name) {
 			case "amount":
@@ -64,13 +65,21 @@
 			case "side":
 			side=value;
 			break;
+			case "color":
+			color=value;
+			break;
 		}
-		$("#offer").text("\"포스터 "+amount+"을 "+size+"크기의 "+paperType+" "+paperThick+"으로 "+(side=="1"?"단면":"양면")+"으로 출력하고 , "+coating+"으로 코팅해 주세요\"");
+		$("#offer").text("\"포스터 "+amount+"을 "+size+"크기의 "+paperType+" "+paperThick+"으로 "+side+"으로  "+color+" 출력하고, "+coating+"으로 코팅해 주세요\"");
+
+		//전송버튼 활성화 및 get 전송
+
 	}
 	$(function(){
 
 		$("#inside2").scroll(function(){
+			if(listing[0]!=''){
 			chuchun(listing);
+		}
 		});
 		$( "#purpose" ).selectmenu();
 		$( "#purpose" ).on( "selectmenuchange", function( event, ui ) {
@@ -98,48 +107,113 @@
 			labels: thickList
 		});
 
-		//papertype 바뀌었을 때
-	// 	switch (parseInt(ui.item.value)) {
-	// 		case 1:
-	// 		thickList=['',"100g","120g","150g","180g","200g","250g","300"];
-	// 		orderList=[0,1,2,3,4,5,6,8];
-	// 		break;
-	// 		case 2:
-	// 		thickList=['',"100g","120g","150g","180g","200g","250g","300"];
-	// 		orderList=[0,1,2,3,4,5,6,8];
-	// 		break;
-	// 		case 3:
-	// 		thickList=['',"80g","100g","120g","150g","180g","200g","220g","250g","260","300",""];
-	// 		orderList=[0,10,1,2,3,4,5,16,6,17,8];
-	// 		break;
-	// 		case 4:
-	// 		thickList=['','210g'];
-	// 		orderList=[0,14];
-	// 		break;
-	// 		case 5:
-	// 		thickList=['','105g','130g','160g',"190g",'210g',"240g"];
-	// 		orderList=[0,9,11,12,13,14,15];
-	// 		break;
-	// 		case 6:
-	// 		thickList=['','210g'];
-	// 		orderList=[0,14];
-	// 		break;
-	//
-	// 	}
-	// 	var cntThickList=thickList.length-1;
-	// 	$( "#thick" ).slider("option","max",thickList.length-1).slider("pips",{
-	// 		first:false,
-	// 		rest: "label",
-	// 		labels: thickList
-	// 	}).slider("pips","refresh");
-	// });
+
 
 
 
 });
+function sizeSelect(value){
+	var pos;
+	var idOfSize=["a3","a2","a1","b3","b2","8j","4j","2j","g4j","g2j","gj"];
+	var nameOfSize=["A3","A2","A1","B3","B2","8절","4절","2절","국4절","국2절","국절"];
+	$("#selected_size_mark").remove();
+	for(var i=0;i<idOfSize.length;i++){
+		if(value==idOfSize[i]){
+			pos=i;
+			$("#"+value).after("<div id=\"selected_size_mark\" style=\"height:"+$("#a3").height()+"px\"class=\"option-selected\"></div>");
+		}
+	}
+	makeSentence("size",nameOfSize[pos]);
+}
+function colorSelect(value){
+	var pos;
+	var idOfColor=["1do","4do"];
+	var nameOfColor=["1도","4도"];
+	$("#selected_color_mark").remove();
+	for(var i=0;i<idOfColor.length;i++){
+		if(value==idOfColor[i]){
+			pos=i;
+		$("#"+value).after("<div id=\"selected_color_mark\" style=\"margin-top:"+($('#1do').offset().top-$('#sisi').offset().top)+"px; width:"+$("#1do").width()+"px; height:"+$("#1do").height()+"px; border-radius: 0px; left: inherit;\"class=\"option-selected\"></div>");
+		}
+	}
+	makeSentence("color",nameOfColor[pos]);
+}
+function sideSelect(value){
+		var pos;
+		var idOfSide=["single","double"];
+		var nameOfSide=["단면","양면"];
+		for(var i=0;i<idOfSide.length;i++){
+			if(value==idOfSide[i]){
+				pos=i;
+			}
+		}
+			makeSentence("side",nameOfSide[pos]);
+}
+function typeSelect(value){
+	var pos;
+	var idOfType=["paper1","paper2","paper3","paper4","paper5","paper6"];
+	var nameOfType=["아트지","스노우지","모조지","아르떼","랑데뷰","르느와르"];
+	$("#selected_type_mark").remove();
+	for(var i=0;i<idOfType.length;i++){
+		if(value==idOfType[i]){
+			pos=i;
+			$("#"+value).after("<div id=\"selected_type_mark\" style=\"width:"+$("#paper1").width()+"px; height:"+$("#paper1").height()+"px; border-radius: 0px; left: inherit;\"class=\"option-selected\"></div>");
+		}
+	}
+		makeSentence("paperType",nameOfType[pos]);
 
+		//papertype 바뀌었을 때
+		switch (pos+1) {
+			case 1:
+			thickList=['',"100g","120g","150g","180g","200g","250g","300"];
+			orderList=[0,1,2,3,4,5,6,8];
+			break;
+			case 2:
+			thickList=['',"100g","120g","150g","180g","200g","250g","300"];
+			orderList=[0,1,2,3,4,5,6,8];
+			break;
+			case 3:
+			thickList=['',"80g","100g","120g","150g","180g","200g","220g","250g","260","300"];
+			orderList=[0,10,1,2,3,4,5,16,6,17,8];
+			break;
+			case 4:
+			thickList=['','210g'];
+			orderList=[0,14];
+			break;
+			case 5:
+			thickList=['','105g','130g','160g',"190g",'210g',"240g"];
+			orderList=[0,9,11,12,13,14,15];
+			break;
+			case 6:
+			thickList=['','210g'];
+			orderList=[0,14];
+			break;
+
+		}
+		var cntThickList=thickList.length-1;
+		$( "#thick" ).slider("option","max",thickList.length-1).slider("pips",{
+			first:false,
+			rest: "label",
+			labels: thickList
+		}).slider("pips","refresh");
+		$("#thick").on( "slidechange", function( event, ui ) {
+			console.log(ui);
+			makeSentence("paperThick",ui.value);
+		});
+}
 </script>
 <style>
+.option-selected{
+		background: #F3C262;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-radius: 10px;
+    opacity: 0.7;
+}
 .ui-selectmenu-open{
 	z-index: 400;
 }
@@ -308,27 +382,27 @@ input[type="radio"]:checked + label::before {
 	</div>
 	<div class="row">
 		<div class="col-xs-2">
-			<img id="paper1" class="img img-responsive" src="/sources/paperR1.jpg">
+			<img id="paper1" onclick="typeSelect('paper1')" class="img img-responsive" src="/sources/paperR1.jpg">
 			<span class="paper-option-sub-text">"광택이 있고<br>가격대비 색감이<br>좋아."</span>
 		</div>
 		<div class="col-xs-2">
-			<img id="paper2" class="img img-responsive" src="/sources/paperR2.jpg">
+			<img id="paper2" onclick="typeSelect('paper2')" class="img img-responsive" src="/sources/paperR2.jpg">
 			<span class="paper-option-sub-text">"무광택이고<br>가격대비 색감이<br>좋아."</span>
 		</div>
 		<div class="col-xs-2">
-			<img id="paper3" class="img img-responsive" src="/sources/paperR3.jpg">
+			<img id="paper3" onclick="typeSelect('paper3')" class="img img-responsive" src="/sources/paperR3.jpg">
 			<span class="paper-option-sub-text">"일반 복사용지야.<br>표면이 매끄럽고<br>가격이 저렴해"</span>
 		</div>
 		<div class="col-xs-2">
-			<img id="paper4" class="img img-responsive" src="/sources/paperR4.jpg">
+			<img id="paper4" onclick="typeSelect('paper4')" class="img img-responsive" src="/sources/paperR4.jpg">
 			<span class="paper-option-sub-text">"은은한 광택이 돌고<br>종이 본연의 촉감이<br>살아있어."</span>
 		</div>
 		<div class="col-xs-2">
-			<img id="paper5" class="img img-responsive" src="/sources/paperR5.jpg">
+			<img id="paper5" onclick="typeSelect('paper5')" class="img img-responsive" src="/sources/paperR5.jpg">
 			<span class="paper-option-sub-text">"색감 표현이<br>훌륭하고 약간의<br>무늬가 고급스러워"</span>
 		</div>
 		<div class="col-xs-2">
-			<img id="paper6" class="img img-responsive" src="/sources/paperR6.jpg">
+			<img id="paper6" onclick="typeSelect('paper6')" class="img img-responsive" src="/sources/paperR6.jpg">
 			<span class="paper-option-sub-text">"종이 질감이<br>살아있어서 색감이<br>풍부하게 표현돼"</span>
 		</div>
 	</div>
@@ -350,7 +424,7 @@ input[type="radio"]:checked + label::before {
 			<div class="row" style="padding:1%; margin-top:0px;">
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img id="a3" src="/sources/a3.png" class="img img-responsive">
+						<img id="a3" src="/sources/a3.png" onclick="sizeSelect('a3')" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">A3</span>
@@ -358,7 +432,7 @@ input[type="radio"]:checked + label::before {
 				</div>
 				<div class="col-xs-4 papersize1 ">
 					<div class="papersize">
-						<img id="a2" src="/sources/a2.png" class="img img-responsive">
+						<img id="a2" src="/sources/a2.png" onclick="sizeSelect('a2')" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">A2</span>
@@ -366,7 +440,7 @@ input[type="radio"]:checked + label::before {
 				</div>
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img id="a1" src="/sources/a1.png" class="img img-responsive">
+						<img id="a1" src="/sources/a1.png" onclick="sizeSelect('a1')" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">A1</span>
@@ -376,7 +450,7 @@ input[type="radio"]:checked + label::before {
 			<div class="row" style=" margin-top:0px;">
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img id="b3"  src="/sources/b3.png" class="img img-responsive">
+						<img id="b3"  src="/sources/b3.png" onclick="sizeSelect('b3')" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">B3</span>
@@ -384,7 +458,7 @@ input[type="radio"]:checked + label::before {
 				</div>
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img id="b2" src="/sources/b2.png" class="img img-responsive">
+						<img id="b2" src="/sources/b2.png" onclick="sizeSelect('b2')" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">B2</span>
@@ -395,7 +469,7 @@ input[type="radio"]:checked + label::before {
 			<div class="row" style="margin-top:0px;">
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img id="8j" src="/sources/8j.png" class="img img-responsive">
+						<img id="8j" src="/sources/8j.png" onclick="sizeSelect('8j')" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">8절</span>
@@ -403,7 +477,7 @@ input[type="radio"]:checked + label::before {
 				</div>
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img id="4j" src="/sources/4j.png" class="img img-responsive">
+						<img id="4j" src="/sources/4j.png" onclick="sizeSelect('4j')" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">4절</span>
@@ -411,7 +485,7 @@ input[type="radio"]:checked + label::before {
 				</div>
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img id="2j" src="/sources/2j.png" class="img img-responsive">
+						<img id="2j" src="/sources/2j.png" onclick="sizeSelect('2j')" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">2절</span>
@@ -421,7 +495,7 @@ input[type="radio"]:checked + label::before {
 			<div class="row" style="margin-top:0px;">
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img id="g4j" src="/sources/g4j.png" class="img img-responsive">
+						<img id="g4j" src="/sources/g4j.png" onclick="sizeSelect('g4j')" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">국4절</span>
@@ -429,7 +503,7 @@ input[type="radio"]:checked + label::before {
 				</div>
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img id="g2j" src="/sources/g2j.png" class="img img-responsive">
+						<img id="g2j" src="/sources/g2j.png" onclick="sizeSelect('g2j')" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">국2절</span>
@@ -437,7 +511,7 @@ input[type="radio"]:checked + label::before {
 				</div>
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
-						<img id="gj" src="/sources/gj.png" class="img img-responsive">
+						<img id="gj" src="/sources/gj.png" onclick="sizeSelect('gj')" class="img img-responsive">
 					</div>
 					<div>
 						<span class="paper-text">국전</span>
@@ -462,20 +536,20 @@ input[type="radio"]:checked + label::before {
 		<div class="col-xs-4">
 			<span class="option-label">인쇄면</span>
 			<div style="margin-top: 10px;">
-				<input name="side" id="single" type="radio"><label style="padding-left:15px; font-weight: normal; font-size:14px; " class="option-label" for="single">단면</label>
-				<input name="side" id="double" type="radio"><label style="padding-left:15px; font-weight: normal; font-size:14px; " class="option-label" for="double">양면</label>
+				<input name="side" id="single" type="radio" onclick="sideSelect('single')" ><label style="padding-left:15px; font-weight: normal; font-size:14px; " class="option-label" for="single">단면</label>
+				<input name="side" id="double" type="radio" onclick="sideSelect('double')"><label style="padding-left:15px; font-weight: normal; font-size:14px; " class="option-label" for="double">양면</label>
 			</div>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-4" id="sisi">
 			<span class="option-label">도수</span>
 			<div style="margin-top:10px;">
 			<div style="width:48%; float:left;">
-				<img class="img img-responsive" src="/sources/1do.png">
+				<img id="1do" class="img img-responsive" onclick="colorSelect('1do')" src="/sources/1do.png">
 				<span class="paper-text" style="text-align:center; display:block;">1도(흑백)</span>
 				<span style="font-size:13px; text-align:center; 	color:#8C8980; display:block;">“흑백 인쇄물에<br>적합해. 단, 섬세한<br>디자인의 흑백<br>출력물은 4도를<br>권장할게.”</span>
 			</div>
 			<div style="width:48%; float:right; ">
-				<img class="img img-responsive" src="/sources/4do.png">
+				<img id="4do" class="img img-responsive" onclick="colorSelect('4do')" src="/sources/4do.png">
 				<span class="paper-text" style="text-align:center; display:block;">4도</span>
 				<span style="font-size:13px; text-align:center; 	color:#8C8980; display:block;">“컬러 인쇄물은<br>4도(CMYK)로<br>출력해야 해.<br>CMYK로 작업하는<br>것 잊지 말고!”</span>
 			</div>
