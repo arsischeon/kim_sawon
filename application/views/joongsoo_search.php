@@ -95,6 +95,26 @@
 			$("#submit_no").css("display","none");
 			$("#submit_yes").css("display","block");
 		}
+
+		var request = $.ajax({
+  	url: "/result/silsigan_search",
+  	method: "GET",
+  	data: {
+				goods:1,
+				amount:Iamount,
+				paperType:IpaperType,
+				paperThick:IpaperThick,
+				size:Isize,
+				coating:Icoating,
+				side:Iside,
+				color:Icolor
+		 },
+  	dataType: "html"
+		});
+
+		request.done(function( msg ) {
+  		$( "#silsigan" ).html( msg );
+		});
 	}
 	$(function(){
 		$("#submit_yes").on("click",function(){
@@ -356,7 +376,7 @@ input[type="radio"]:checked + label::before {
 		</div>
 		<div class="col-xs-4" style="border-left: 2px solid #DEDDDD;">
 			<div style="float:left;">	<span class="option-label">검색 결과 개수:</span></div>
-			<div style="border-bottom: 2px solid #f3c262; display: inline-block; width:80px; text-align:center; font-size:17px;"> 30</div>
+			<div id="silsigan" style="border-bottom: 2px solid #f3c262; display: inline-block; width:80px; text-align:center; font-size:17px;"></div>
 			<div style="display: inline-block; "><span class="option-label">개</span></div>
 		</div>
 	</div>
