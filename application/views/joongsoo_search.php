@@ -97,7 +97,7 @@
 		}
 
 		var request = $.ajax({
-  	url: "/result/temp?goods=1&amount="+Iamount+"&paperType="+IpaperType+"&paperThick="+IpaperThick+"&size="+Isize+"&coating="+Icoating+"&side="+Iside+"&color="+Icolor+"",
+  	url: "/result/silsigan_search?goods=1&amount="+Iamount+"&paperType="+IpaperType+"&paperThick="+IpaperThick+"&size="+Isize+"&coating="+Icoating+"&side="+Iside+"&color="+Icolor+"",
 		success:function(data){
   		$( "#silsigan" ).html(data);
 		}
