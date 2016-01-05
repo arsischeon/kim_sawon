@@ -99,7 +99,7 @@
 	$(function(){
 		$("#submit_yes").on("click",function(){
 			console.log(Iamount+";;"+ IpaperType+";;"+IpaperThick+";;"+Isize+";;"+Icoating+";;"+Iside+";;"+Icolor);
-			location.href="/result/temp?amount="+Iamount+"&paperType="+IpaperType+"&paperThick="+IpaperThick+"&size="+Isize+"&coating="+Icoating+"&side="+Iside+"&color="+Icolor;
+			location.href="/result/temp?goods=1&amount="+Iamount+"&paperType="+IpaperType+"&paperThick="+IpaperThick+"&size="+Isize+"&coating="+Icoating+"&side="+Iside+"&color="+Icolor;
 		});
 		$("#inside2").scroll(function(){
 			if(listing[0]!=''){
