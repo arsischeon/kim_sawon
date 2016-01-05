@@ -195,6 +195,8 @@ obj.addEventListener("load",function(){
 
 	$("#result_table").css("width",document.getElementById("sline").getBoundingClientRect().width+"px");
 	$("#result_table").css("margin-left",$("#sline").position().left+"px");
+	$("#result_table2").css("width",document.getElementById("sline").getBoundingClientRect().width+"px");
+	$("#result_table2").css("margin-left",$("#sline").position().left+"px");
 
 
 	});
