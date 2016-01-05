@@ -7,8 +7,11 @@
 </div>
 <img id="typecc" src="/sources/chuchun.png" style="width:50px; z-index:300; position:absolute; display:none">
 <img id="sizecc" src="/sources/chuchun.png" style="width:80px; z-index:300; position:absolute; display:none">
+<img id="colorcc" src="/sources/chuchun.png" style="width:60px; z-index:300; position:absolute; display:none">
 <script>
-	var listing=["",""];
+	var listing=["","","4do"];
+
+
 	function chuchun(lists){
 		for(var i=0;i<lists.length;i++){
 			var target=$("#"+lists[i]);
@@ -18,10 +21,14 @@
 				$("#typecc").css("top",cc_top+"px");
 				$("#typecc").css("left",cc_left+"px");
 				$("#typecc").css("display","");
-			}else{
+			}else if(i==1){
 				$("#sizecc").css("top",cc_top+"px");
 				$("#sizecc").css("left",cc_left+"px");
 				$("#sizecc").css("display","");
+			}else{
+				$("#colorcc").css("left",cc_left+"px");
+				$("#colorcc").css("top",cc_top+"px");
+				$("#colorcc").css("display","");
 			}
 		}
 		if ($("#typecc").offset().top<$("#inside2").offset().top) {
@@ -35,6 +42,12 @@
 		}
 		if ($("#sizecc").offset().top+$("#sizecc").height()>$("#inside2").offset().top+$("#inside2").height()) {
 			$("#sizecc").css("display","none");
+		}
+		if ($("#colorcc").offset().top<$("#inside2").offset().top) {
+			$("#colorcc").css("display","none");
+		}
+		if ($("#colorcc").offset().top+$("#colorcc").height()>$("#inside2").offset().top+$("#inside2").height()) {
+			$("#colorcc").css("display","none");
 		}
 
 	}
@@ -107,9 +120,13 @@
 
 	}
 	$(function(){
+
+
+
+
 		$("#submit_yes").on("click",function(){
 			console.log(Iamount+";;"+ IpaperType+";;"+IpaperThick+";;"+Isize+";;"+Icoating+";;"+Iside+";;"+Icolor);
-			location.href="/result/temp?goods=1&amount="+Iamount+"&paperType="+IpaperType+"&paperThick="+IpaperThick+"&size="+Isize+"&coating="+Icoating+"&side="+Iside+"&color="+Icolor;
+			location.href="/result/lists?goods=1&amount="+Iamount+"&paperType="+IpaperType+"&paperThick="+IpaperThick+"&size="+Isize+"&coating="+Icoating+"&side="+Iside+"&color="+Icolor;
 		});
 		$("#inside2").scroll(function(){
 			if(listing[0]!=''){
@@ -120,13 +137,13 @@
 		$( "#purpose" ).on( "selectmenuchange", function( event, ui ) {
 			switch(parseInt(ui.item.value)){
 				case 1:
-					listing=["paper1","a2"];
+					listing=["paper1","a2","4do"];
 				break;
 				case 2:
-					listing=["paper2","a1"];
+					listing=["paper2","a1","4do"];
 				break;
 				case 3:
-					listing=["paper2","a1"];
+					listing=["paper2","a1","4do"];
 				break;
 			}
 			chuchun(listing);
@@ -354,7 +371,7 @@ input[type="radio"]:checked + label::before {
 <div id="inside" class="container" style=" display:none; position: absolute; ">
 	<div class="row">
 		<div class="col-xs-4">
-			<span class="option-label">무슨 용도를 위해 출력하시나요?</span>
+			<span class="option-label">무슨 용도야? 추천해줄게!</span>
 		</div>
 		<div class="col-xs-4" style="padding-left:0px;">
 			<select name="purpose" id="purpose">
@@ -641,6 +658,15 @@ var obj2=document.getElementById('obj2');
 
 obj.addEventListener("load",function(){
 	var doc=obj.getSVGDocument();
+	doc.querySelector("#go1").addEventListener("click",function(){
+		location.href="/search/gosoo";
+	});
+	doc.querySelector("#go2").addEventListener("click",function(){
+		location.href="/search/joongsoo";
+	});
+	doc.querySelector("#go3").addEventListener("click",function(){
+		location.href="/search/hasoo";
+	});
 	var leftOfInside=doc.querySelector("#lefthand").getBoundingClientRect().right;
 	var rightOfInside=doc.querySelector("#righthand").getBoundingClientRect().left;
 	var topOfInside=doc.querySelector("#backgroundWhite").getBoundingClientRect().top;

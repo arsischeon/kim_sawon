@@ -13,19 +13,18 @@
    <title>kkkkkkk-08</title>
    <g id="dummy-3" data-name="dummy">
       <line id="sline" class="cls-1" x1="97.27" y1="209.04" x2="1335.96" y2="209.04"/>
+			  <?php
+				$cnt=0
+				foreach ($resultExact->result_array() as $result): ?>
+					<?php if($cnt++==0){?>
       <text class="cls-2" transform="translate(312.11 123.7)">
-         사이트명
-         <tspan x="0" y="26.4">전화번호 ww</tspan>
-         <tspan x="121.17" y="26.4">w</tspan>
-         <tspan x="137.83" y="26.4">.사이트주소</tspan>
-         <tspan x="245.14" y="26.4">.</tspan>
-         <tspan x="250.97" y="26.4">c</tspan>
-         <tspan x="261.65" y="26.4">om </tspan>
-         <tspan x="0" y="52.8">검색된 옵션 (</tspan>
-         <tspan x="119.72" y="52.8">ex</tspan>
-         <tspan x="142.52" y="52.8">. 300부-A2-아트지-150g-4도-단면-유광코팅)</tspan>
+         <? echo $result['site_name'];?>
+         <tspan x="0" y="26.4"><? echo $result['site_phone']." "$result['site_url'];?></tspan>
+         <tspan x="0" y="52.8">검색된 옵션</tspan>
       </text>
-      <text class="cls-3" transform="translate(312.11 75.8)">00,000원</text>
+
+      <text class="cls-3" transform="translate(312.11 75.8)"><?echo $result['price'];?></text>
+
       <circle class="cls-4" cx="170.85" cy="108.62" r="66.9"/>
    </g>
    <g id="more_results" data-name="more results">
@@ -45,6 +44,9 @@
          <tspan x="-10.12" y="26.4">바로가기</tspan>
       </text>
    </g>
+	 <?php
+ 			}
+ 			endforeach; ?>
 </svg>
 <style>
 table{
