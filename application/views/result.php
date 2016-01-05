@@ -62,11 +62,13 @@ $count=0;
 $q1=new SplQueue();
 $q2=new SplQueue();
 		foreach ($resultSimmilar->result_array() as $result):
+			$count++;
  			if($result['price']<$price){
+				if($count<7){
 				$q1->enqueue($result);
+			}
 			}else{
-				$count++;
-				if($count<4){
+				if($count<7){
 				$q2->enqueue($result);
 			}
 			}
