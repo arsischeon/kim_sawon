@@ -23,7 +23,7 @@
          <tspan x="0" y="52.8">검색된 옵션</tspan>
       </text>
 
-      <text class="cls-3" transform="translate(312.11 75.8)"><?echo $result['price']."원";?></text>
+      <text class="cls-3" transform="translate(312.11 75.8)"><?echo number_format($result['price'])."원";?></text>
 
       <circle class="cls-4" cx="170.85" cy="108.62" r="66.9"/>
    </g>
