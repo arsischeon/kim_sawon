@@ -1,5 +1,5 @@
 <?php
-$re=mysql_fetch_row($result->result_array());
+$re=($result->result_array())[0];
 echo $re[0];
 
  ?>
