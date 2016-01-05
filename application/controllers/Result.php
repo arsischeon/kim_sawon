@@ -16,5 +16,11 @@ class Result extends CI_Controller {
     $this->load->view('result_temp',$data);
     $this->load->view('footer');
   }
+  public function silsigan_search(){
+    $this->load->model('search');
+    $data['result']=$this->search->silsigan();
+    $this->load->view('silsigan',$data);
+  }
+
 
 }
