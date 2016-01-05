@@ -95,14 +95,14 @@
 			$("#submit_no").css("display","none");
 			$("#submit_yes").css("display","block");
 		}
-
+		if(Iamount!=""){
 		var request = $.ajax({
   	url: "/result/silsigan_search?goods=1&amount="+Iamount+"&paperType="+IpaperType+"&paperThick="+IpaperThick+"&size="+Isize+"&coating="+Icoating+"&side="+Iside+"&color="+Icolor+"",
 		success:function(data){
   		$( "#silsigan" ).html(data);
 		}
 		});
-
+	}
 
 	}
 	$(function(){
