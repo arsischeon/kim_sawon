@@ -58,13 +58,17 @@ table{
 <?php
 $flag1=0;
 $flag2=0;
+$count=0;
 $q1=new SplQueue();
 $q2=new SplQueue();
 		foreach ($resultSimmilar->result_array() as $result):
  			if($result['price']<$price){
 				$q1->enqueue($result);
 			}else{
+				$count++;
+				if($count<4){
 				$q2->enqueue($result);
+			}
 			}
  		endforeach; ?>
 
@@ -105,7 +109,7 @@ $q2=new SplQueue();
 
 	<table id="result_table2">
 		<thead>
-			<th style="font-size:15pt; text-align:left;">더 저렴하게?</th>
+			<th style="font-size:15pt; text-align:left;">이건 어때요?</th>
 			<th style="font-size:10pt; text-align:left;">업체명</th>
 			<th style="font-size:10pt; text-align:left;">총액</th>
 			<th style="font-size:10pt; text-align:left;">장당 가격</th>
