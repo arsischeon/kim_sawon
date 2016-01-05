@@ -97,24 +97,13 @@
 		}
 
 		var request = $.ajax({
-  	url: "/result/silsigan_search",
-  	method: "GET",
-  	data: {
-				goods:1,
-				amount:Iamount,
-				paperType:IpaperType,
-				paperThick:IpaperThick,
-				size:Isize,
-				coating:Icoating,
-				side:Iside,
-				color:Icolor
-		 },
-  	dataType: "html"
+  	url: "/result/temp?goods=1&amount="+Iamount+"&paperType="+IpaperType+"&paperThick="+IpaperThick+"&size="+Isize+"&coating="+Icoating+"&side="+Iside+"&color="+Icolor+"",
+		success:function(data){
+  		$( "#silsigan" ).html(data);
+		}
 		});
 
-		request.done(function( msg ) {
-  		$( "#silsigan" ).html( msg );
-		});
+
 	}
 	$(function(){
 		$("#submit_yes").on("click",function(){
