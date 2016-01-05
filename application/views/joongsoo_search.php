@@ -46,13 +46,13 @@
 	var side="";
 	var color="";
 
-	var Iamount;
-	var IpaperType;
-	var IpaperThick;
-	var Isize;
-	var Icoating;
-	var Iside;
-	var Icolor;
+	var Iamount="";
+	var IpaperType="";
+	var IpaperThick="";
+	var Isize="";
+	var Icoating="";
+	var Iside="";
+	var Icolor="";
 
 	function makeSentence(name,value,num){
 		switch (name) {
