@@ -110,7 +110,7 @@ and p.paperType like '%$paperType%'
 and p.paperThick like '%$paperThick%'
 and p.color like '%$color%'
 and p.coating like '%$coating%'
-and p.amount = '$amount'
+and p.amount like '%$amount%'
 order by p.price
 ");
 
