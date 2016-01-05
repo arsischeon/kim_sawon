@@ -2,7 +2,8 @@
 
 <div style="min-width:1080px">
 	<object id="obj" data="/sources/search_joongsoo.svg"  type="image/svg+xml"></object>
-	<object style="min-width:1080px; " class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
+	<object style="min-width:1080px; z-index: 1000;
+	" class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
 </div>
 <img id="typecc" src="/sources/chuchun.png" style="width:50px; z-index:300; position:absolute; display:none">
 <img id="sizecc" src="/sources/chuchun.png" style="width:80px; z-index:300; position:absolute; display:none">
