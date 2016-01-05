@@ -20,11 +20,11 @@
 					<?php if($cnt++==0){?>
       <text class="cls-2" transform="translate(312.11 123.7)">
          <? echo $result['site_name'];?>
-         <tspan x="0" y="26.4"><? echo $result['site_phone']." (배송비: ".$result['delivery'].")";?></tspan>
-         <tspan x="0" y="52.8">검색된 옵션</tspan>
+         <tspan x="0" y="26.4"><? echo $result['site_phone'];?></tspan>
+         <tspan x="0" y="52.8"><? echo "배송비: ".$result['delivery']; ?></tspan>
       </text>
 
-      <text class="cls-3" transform="translate(312.11 75.8)"><?echo number_format($price=$result['price'])."원";?></text>
+      <text class="cls-3" transform="translate(312.11 75.8)"><?echo number_format($price=$result['price'])."원 (장당 가격: ".number_format($result['price']/$result['amount'])."원";?></text>
 
       <circle class="cls-4" cx="170.85" cy="108.62" r="66.9"/>
    </g>
