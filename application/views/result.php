@@ -14,6 +14,7 @@
    <g id="dummy-3" data-name="dummy">
       <line id="sline" class="cls-1" x1="97.27" y1="209.04" x2="1335.96" y2="209.04"/>
 			  <?php
+				$price;
 				$cnt=0;
 				foreach ($resultExact->result_array() as $result): ?>
 					<?php if($cnt++==0){?>
@@ -23,7 +24,7 @@
          <tspan x="0" y="52.8">검색된 옵션</tspan>
       </text>
 
-      <text class="cls-3" transform="translate(312.11 75.8)"><?echo number_format($result['price'])."원";?></text>
+      <text class="cls-3" transform="translate(312.11 75.8)"><?echo number_format($price=$result['price'])."원";?></text>
 
       <circle class="cls-4" cx="170.85" cy="108.62" r="66.9"/>
    </g>
@@ -54,6 +55,23 @@ table{
 	color: #66635A;
 }
 </style>
+<?php
+$flag1=0;
+$flag2=0;
+$q1=new SplQueue();
+$q2=new SplQueue();
+		foreach ($resultSimmilar->result_array() as $result):
+ 			if($result['price']<$price){
+				$q1->enqueue($result);
+			}else{
+				$q2->enqueue($result);
+			}
+ 		endforeach; ?>
+
+		<?
+		 if(!$q1->isEmpty()) {
+			 $flag1=1;
+			 ?>
 	<table id="result_table">
 		<thead>
 			<th style="font-size:15pt; text-align:left;">더 저렴하게?</th>
@@ -64,17 +82,54 @@ table{
 			<th></th>
 		</thead>
 		<tbody>
+			<?
+		}
+			 while (!$q1->isEmpty()) {
+				 $resultq=$q1->dequeue();
+				 ?>
 			<tr>
-				<td style="width:39%;font-size:10pt; text-align:left;"><b>매수</b>-크기-종이재질-종이무게-도수-면-코팅</td>
-				<td style="width:11%; font-size:10pt; text-align:left;">업체명</td>
-				<td style="width:12%; font-size:10pt; text-align:left;">00,000원</td>
-				<td style="width:12%; font-size:10pt; text-align:left;">0,000원</td>
-				<td style="width:12%; font-size:10pt; text-align:left;">10만원 미만 2500원부터</td>
-				<td><img type="button" src="/sources/button.png" style="text-align:right; vertical-align:middle; width:80px;"></td>
+				<td style="width:39%;font-size:10pt; text-align:left;"><b><? echo $resultq['amount']."장"; ?></b>-크기-종이재질-종이무게-도수-면-코팅</td>
+				<td style="width:11%; font-size:10pt; text-align:left;"><? echo $resultq['site_name']; ?></td>
+				<td style="width:12%; font-size:10pt; text-align:left;"><? echo number_format($resultq['price'])."원"; ?></td>
+				<td style="width:12%; font-size:10pt; text-align:left;"><? echo number_format($resultq['price']/$resultq['amount'])."원"; ?></td>
+				<td style="width:12%; font-size:10pt; text-align:left;"><? echo $resultq['delivery']; ?></td>
+				<td><img onclick="location.href='<? echo $resultq['site_url']; ?>'" type="button" src="/sources/button.png" style="text-align:right; vertical-align:middle; width:80px; cursor:pointer;"></td>
 			</tr>
+			<? }?>
+
+			<? if($flag1==1){ ?>
 		</tbody>
 
 	</table>
+<?}?>
+
+	<table id="result_table2">
+		<thead>
+			<th style="font-size:15pt; text-align:left;">더 저렴하게?</th>
+			<th style="font-size:10pt; text-align:left;">업체명</th>
+			<th style="font-size:10pt; text-align:left;">총액</th>
+			<th style="font-size:10pt; text-align:left;">장당 가격</th>
+			<th style="font-size:10pt; text-align:left;">배송비</th>
+			<th></th>
+		</thead>
+		<tbody>
+			<?
+			while (!$q2->isEmpty()) {
+ 			 $resultq=$q2->dequeue();
+ 			 ?>
+ 		<tr>
+ 			<td style="width:39%;font-size:10pt; text-align:left;"><b><? echo $resultq['amount']."장"; ?></b>-크기-종이재질-종이무게-도수-면-코팅</td>
+ 			<td style="width:11%; font-size:10pt; text-align:left;"><? echo $resultq['site_name']; ?></td>
+ 			<td style="width:12%; font-size:10pt; text-align:left;"><? echo number_format($resultq['price'])."원"; ?></td>
+ 			<td style="width:12%; font-size:10pt; text-align:left;"><? echo number_format($resultq['price']/$resultq['amount'])."원"; ?></td>
+ 			<td style="width:12%; font-size:10pt; text-align:left;"><? echo $resultq['delivery']; ?></td>
+ 			<td><img onclick="location.href='<? echo $resultq['site_url']; ?>'" type="button" src="/sources/button.png" style="text-align:right; vertical-align:middle; width:80px; cursor:pointer;"></td>
+ 		</tr>
+ 		<? }?>
+		</tbody>
+	</table>
+
+
 <script>
 $("td>img").css("width", "99px");
 </script>
