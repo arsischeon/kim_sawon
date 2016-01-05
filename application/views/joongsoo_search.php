@@ -45,37 +45,62 @@
 	var coating="-";
 	var side="";
 	var color="";
-	function makeSentence(name,value){
+
+	var Iamount;
+	var IpaperType;
+	var IpaperThick;
+	var Isize;
+	var Icoating;
+	var Iside;
+	var Icolor;
+
+	function makeSentence(name,value,num){
 		switch (name) {
 			case "amount":
 			amount=value;
+			Iamount=num;
 			break;
 			case "paperType":
 			paperType=value;
+			IpaperType=num;
 			break;
 			case "paperThick":
 			paperThick=thickList[value];
+			IpaperThick=num;
 			break;
 			case "size":
 			size=value;
+			Isize=num;
 			break;
 			case "coating":
 			coating=value;
+			Icoating=num;
 			break;
 			case "side":
 			side=value;
+			Iside=num;
 			break;
 			case "color":
 			color=value;
+			Icolor=num;
 			break;
 		}
 		$("#offer").text("\"포스터 "+amount+"을 "+size+"크기의 "+paperType+" "+paperThick+"으로 "+side+"으로  "+color+" 출력하고, "+coating+"으로 코팅해 주세요\"");
 
 		//전송버튼 활성화 및 get 전송
-
+		if(amount=="-"||paperType=="-"||paperThick=="-g"||size=="-"||coating=="-"||side==""||color==""){
+			$("#submit_no").css("display","block");
+			$("#submit_yes").css("display","none");
+		}else{
+			$("#submit_no").css("display","none");
+			$("#submit_yes").css("display","block");
+		}
 	}
 	$(function(){
-
+		$("#submit_yes").on("click",function(){
+			console.log(Iamount+";;"+ IpaperType+";;"+IpaperThick+";;"+Isize+";;"+Icoating+";;"+Iside+";;"+Icolor);
+			location.href="/result/temp?amount="+Iamount+"&paperType="+IpaperType+"&paperThick="+IpaperThick+"&size="+Isize+"&coating="+Icoating+"&side="+Iside+"&color="+Icolor;
+		});
 		$("#inside2").scroll(function(){
 			if(listing[0]!=''){
 			chuchun(listing);
@@ -97,9 +122,13 @@
 			chuchun(listing);
 		 });
 		$( "#amount" ).selectmenu().selectmenu( "menuWidget" ).addClass( "overflow" );
-		$( "#amount" ).on( "selectmenuchange", function( event, ui ) { makeSentence("amount",ui.item.label); } );
+		$( "#amount" ).on( "selectmenuchange", function( event, ui ) {
+			makeSentence("amount",ui.item.label,ui.item.value);
+		} );
 		$( "#coating" ).selectmenu();
-		$( "#coating" ).on( "selectmenuchange", function( event, ui ) { makeSentence("coating",ui.item.label); } );
+		$( "#coating" ).on( "selectmenuchange", function( event, ui ) {
+			makeSentence("coating",ui.item.label,ui.item.value);
+		} );
 		$('[data-toggle="tooltip"]').tooltip();
 		$( "#thick" ).slider({max:thickList.length}).slider("pips",{
 			first:false,
@@ -116,6 +145,7 @@ function sizeSelect(value){
 	var pos;
 	var idOfSize=["a3","a2","a1","b3","b2","8j","4j","2j","g4j","g2j","gj"];
 	var nameOfSize=["A3","A2","A1","B3","B2","8절","4절","2절","국4절","국2절","국절"];
+	var numOfSize=[3,2,1,7,6,10,9,8,15,14,16];
 	$("#selected_size_mark").remove();
 	for(var i=0;i<idOfSize.length;i++){
 		if(value==idOfSize[i]){
@@ -123,12 +153,13 @@ function sizeSelect(value){
 			$("#"+value).after("<div id=\"selected_size_mark\" style=\"height:"+$("#a3").height()+"px\"class=\"option-selected\"></div>");
 		}
 	}
-	makeSentence("size",nameOfSize[pos]);
+	makeSentence("size",nameOfSize[pos],numOfSize[pos]);
 }
 function colorSelect(value){
 	var pos;
 	var idOfColor=["1do","4do"];
 	var nameOfColor=["1도","4도"];
+	var numOfColor=[1,2];
 	$("#selected_color_mark").remove();
 	for(var i=0;i<idOfColor.length;i++){
 		if(value==idOfColor[i]){
@@ -136,23 +167,25 @@ function colorSelect(value){
 		$("#"+value).after("<div id=\"selected_color_mark\" style=\"margin-top:"+($('#1do').offset().top-$('#sisi').offset().top)+"px; width:"+$("#1do").width()+"px; height:"+$("#1do").height()+"px; border-radius: 0px; left: inherit;\"class=\"option-selected\"></div>");
 		}
 	}
-	makeSentence("color",nameOfColor[pos]);
+	makeSentence("color",nameOfColor[pos],numOfColor[pos]);
 }
 function sideSelect(value){
 		var pos;
 		var idOfSide=["single","double"];
 		var nameOfSide=["단면","양면"];
+		var numOfSide=[1,2];
 		for(var i=0;i<idOfSide.length;i++){
 			if(value==idOfSide[i]){
 				pos=i;
 			}
 		}
-			makeSentence("side",nameOfSide[pos]);
+			makeSentence("side",nameOfSide[pos],numOfSide[pos]);
 }
 function typeSelect(value){
 	var pos;
 	var idOfType=["paper1","paper2","paper3","paper4","paper5","paper6"];
 	var nameOfType=["아트지","스노우지","모조지","아르떼","랑데뷰","르느와르"];
+	var numOfType=[1,2,3,6,5,4];
 	$("#selected_type_mark").remove();
 	for(var i=0;i<idOfType.length;i++){
 		if(value==idOfType[i]){
@@ -160,7 +193,7 @@ function typeSelect(value){
 			$("#"+value).after("<div id=\"selected_type_mark\" style=\"width:"+$("#paper1").width()+"px; height:"+$("#paper1").height()+"px; border-radius: 0px; left: inherit;\"class=\"option-selected\"></div>");
 		}
 	}
-		makeSentence("paperType",nameOfType[pos]);
+		makeSentence("paperType",nameOfType[pos],numOfType[pos]);
 
 		//papertype 바뀌었을 때
 		switch (pos+1) {
@@ -198,7 +231,7 @@ function typeSelect(value){
 		}).slider("pips","refresh");
 		$("#thick").on( "slidechange", function( event, ui ) {
 			console.log(ui);
-			makeSentence("paperThick",ui.value);
+			makeSentence("paperThick",ui.value,ui.value);
 		});
 }
 </script>
@@ -370,6 +403,9 @@ input[type="radio"]:checked + label::before {
 				<option value="2">양면무광</option>
 				<option value="3">단면유광</option>
 				<option value="4">양면유광</option>
+				<option value="3-2">단면UV유광</option>
+				<option value="4-2">양면UV유광</option>
+
 			</select>
 		</div>
 		<div class="col-xs-3">
@@ -383,6 +419,11 @@ input[type="radio"]:checked + label::before {
 	<div class="row">
 		<div class="col-xs-2">
 			<img id="paper1" onclick="typeSelect('paper1')" class="img img-responsive" src="/sources/paperR1.jpg">
+			<!-- <div style="width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 0px;
+    top: 0px;"></div> -->
 			<span class="paper-option-sub-text">"광택이 있고<br>가격대비 색감이<br>좋아."</span>
 		</div>
 		<div class="col-xs-2">
@@ -572,7 +613,8 @@ input[type="radio"]:checked + label::before {
 		<div class="col-xs-4">
 		</div>
 		<div class="col-xs-4">
-			<img style="height:32px; text-align:center; display:block;" src="/sources/submit_button.png">
+			<img id="submit_yes" style="cursor:pointer; height:32px; margin-left: 40px; text-align:center; display:none;" src="/sources/submit_button.png">
+			<img id="submit_no" style="height:32px; margin-left: 40px; text-align:center; display:block;" src="/sources/submit_no_button.png">
 		</div>
 		<div class="col-xs-4">
 		</div>
