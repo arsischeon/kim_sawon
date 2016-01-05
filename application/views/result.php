@@ -24,7 +24,7 @@
          <tspan x="0" y="52.8"><? echo "배송비: ".$result['delivery']; ?></tspan>
       </text>
 
-      <text class="cls-3" transform="translate(312.11 75.8)"><?echo number_format($price=$result['price'])."원 (장당 가격: ".number_format($result['price']/$result['amount'])."원";?></text>
+      <text class="cls-3" transform="translate(312.11 75.8)"><?echo number_format($price=$result['price'])."원 (장당 가격: ".number_format($result['price']/$result['amount'])."원)";?></text>
 
       <circle class="cls-4" cx="170.85" cy="108.62" r="66.9"/>
    </g>
