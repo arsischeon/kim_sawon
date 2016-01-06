@@ -515,7 +515,7 @@ input[type="radio"]:checked + label::before {
 					</div>
 				</div>
 			</div>
-			<div class="row" style=" margin-top:0px;">
+			<div class="row" style="padding:1%; margin-top:0px;">
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
 						<img id="b3"  src="/sources/b3.png" onclick="sizeSelect('b3')" class="img img-responsive">
@@ -534,7 +534,7 @@ input[type="radio"]:checked + label::before {
 				</div>
 
 			</div>
-			<div class="row" style="margin-top:0px;">
+			<div class="row" style="padding:1%; margin-top:0px;">
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
 						<img id="8j" src="/sources/8j.png" onclick="sizeSelect('8j')" class="img img-responsive">
@@ -560,7 +560,7 @@ input[type="radio"]:checked + label::before {
 					</div>
 				</div>
 			</div>
-			<div class="row" style="margin-top:0px;">
+			<div class="row" style="padding:1%; margin-top:0px;">
 				<div class="col-xs-4 papersize1">
 					<div class="papersize">
 						<img id="g4j" src="/sources/g4j.png" onclick="sizeSelect('g4j')" class="img img-responsive">
