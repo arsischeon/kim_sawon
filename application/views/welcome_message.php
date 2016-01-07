@@ -2,7 +2,7 @@
 <div style="min-width:1080px">
 	<object id="obj" data="/sources/mainpage-01.svg" type="image/svg+xml"></object>
 </div>
-<div id="banner" style="position:absolute; ">
+<div id="banner" style="position:absolute; width:100%;">
 	<img src="/sources/banner.jpg" class="img img-responsive" >
 </div>
 <script>
