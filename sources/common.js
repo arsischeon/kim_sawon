@@ -8,7 +8,7 @@ function getRule(data) {
   for (var i = 0; i < ss.length; ++i) {
 
     // loop through all the rules!
-    if(ss[i].cssRules!='null'){
+    if(ss[i].cssRules!=null){
     for (var x = 0; x < ss[i].cssRules.length; ++x) {
 
       rule = ss[i].cssRules[x];
