@@ -2,10 +2,23 @@
 <div style="min-width:1080px">
 	<object id="obj" data="/sources/mainpage-01.svg" type="image/svg+xml"></object>
 </div>
+<div id="banner" style="position:absolute; ">
+	<img src="/sources/banner.jpg" class="img img-responsive" >
+</div>
 <script>
 document.getElementById('obj').addEventListener("load",function(){
 	var doc=this.getSVGDocument();
+	var banner_top=doc.querySelector("#up").getBoundingClientRect().bottom;
+	var banner_bottom=doc.querySelector("#down").getBoundingClientRect().top;
+	$("#banner").css("top",banner_top-0.1+"px");
+	$("#banner").css("height",(banner_bottom-banner_top)+"px");
 
+	$(window).on("resize",function(){
+		var banner_top=doc.querySelector("#up").getBoundingClientRect().bottom;
+		var banner_bottom=doc.querySelector("#down").getBoundingClientRect().top;
+		$("#banner").css("top",banner_top-0.1+"px");
+		$("#banner").css("height",(banner_bottom-banner_top)+"px");
+	});
 	doc.querySelector('#menu1').addEventListener("click",function(){
 		location.href="/menu/description";
 	});
