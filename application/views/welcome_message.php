@@ -14,8 +14,8 @@ document.getElementById('obj').addEventListener("load",function(){
 	$("#banner").css("height",(banner_bottom-banner_top)+"px");
 
 	$(window).on("resize",function(){
-		var banner_top=doc.querySelector("#up").getBoundingClientRect().bottom;
-		var banner_bottom=doc.querySelector("#down").getBoundingClientRect().top;
+		banner_top=doc.querySelector("#up").getBoundingClientRect().bottom;
+		banner_bottom=doc.querySelector("#down").getBoundingClientRect().top;
 		$("#banner").css("top",banner_top-0.1+"px");
 		$("#banner").css("height",(banner_bottom-banner_top)+"px");
 	});
