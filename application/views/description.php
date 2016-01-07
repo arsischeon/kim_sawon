@@ -2,9 +2,12 @@
 
 <div style="min-width:1080px">
 	<object id="obj" data="/sources/description.svg" type="image/svg+xml"></object>
-	<object style="min-width:1080px; " class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
+	<object style="min-width:1080px;z-index:2; " class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
 </div>
+<div id="cartoon" style="overflow-y:auto; position: absolute; z-index:1;">
+	<img id="itself" src="/sources/cartoon.jpg" class="img img-responsive">
 
+</div>
 <style>
 @keyframes down {}
 @keyframes up {}
@@ -52,6 +55,23 @@ function getRule(data) {
 obj.addEventListener("load",function(){
 	//마우스오버시 메뉴가 내려옴
 	var doc=this.getSVGDocument();
+	var cartoonBackground=doc.querySelector("#cartoonBackground").getBoundingClientRect();
+	var sogae=doc.querySelector("#sogae").getBoundingClientRect();
+	$("#cartoon").css("top",cartoonBackground.top);
+	$("#cartoon").css("height",cartoonBackground.height);
+	$("#cartoon").css("left",cartoonBackground.left);
+	$("#cartoon").css("width",cartoonBackground.width);
+	// $("#itself").css("padding-top",	sogae.top-cartoonBackground.top);
+	$(window).on("resize",function(){
+		// sogae=doc.querySelector("#sogae").getBoundingClientRect();
+		cartoonBackground=doc.querySelector("#cartoonBackground").getBoundingClientRect();
+		$("#cartoon").css("top",cartoonBackground.top);
+		$("#cartoon").css("height",cartoonBackground.height);
+		$("#cartoon").css("left",cartoonBackground.left);
+		$("#cartoon").css("width",cartoonBackground.width);
+	});
+
+
 	});
 
 
