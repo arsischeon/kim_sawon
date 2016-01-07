@@ -21,10 +21,10 @@ document.getElementById('obj').addEventListener("load",function(){
 
 
 	doc.querySelector('#balloon_gosoo').addEventListener("click",function(){
-		location.href="../search/gosu";
+		location.href="../search/gosoo";
 	});
 	doc.querySelector('#character_gosoo').addEventListener("click",function(){
-		location.href="../search/gosu";
+		location.href="../search/gosoo";
 	});
 
 	doc.querySelector('#balloon_joongsoo').addEventListener("click",function(){
