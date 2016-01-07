@@ -3,7 +3,7 @@
 	<object id="obj" data="/sources/mainpage-01.svg" type="image/svg+xml"></object>
 </div>
 <div id="banner" style="position:absolute; ">
-	<img style="position:absolute; " src="/sources/banner.jpg" class="img img-responsive" >
+	<img src="/sources/banner.jpg" class="img img-responsive" >
 </div>
 <script>
 document.getElementById('obj').addEventListener("load",function(){
