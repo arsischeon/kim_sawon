@@ -18,7 +18,16 @@ class Menu extends CI_Controller {
     $this->load->view('header');
     $this->load->view('cs');
     $this->load->view('footer');
-
+  }
+  public function faq(){
+    $this->load->view('header');
+    $this->load->view('faq');
+    $this->load->view('footer');
+  }
+  public function ask(){
+    $this->load->view('header');
+    $this->load->view('ask');
+    $this->load->view('footer');
   }
 
 }

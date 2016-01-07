@@ -418,7 +418,7 @@ input[type="radio"]:checked + label::before {
 			</select>
 			<div style=" display: inline-block;">
 				<img data-toggle="tooltip" style="padding-top: 5px;" data-placement="bottom" title="여러 업체에서 선택할 수 있는 수량이 다르기 때문에, 우리는 가장 보편적인 수치들을 선택지로 제공하기로 했어. 만약 꼭 다른 수치를 입력하기를 원한다면 고객센터로 연락해줘!" src="/sources/question_icon.png">
-				<span style="display: inline-block; font-size:2px;vertical-align: top;"> 왜 더 많은 단위의<br> 입력이 안돼? </span>
+				<span style="display: inline-block; font-size:10px;vertical-align: top;"> 왜 더 많은 단위의<br> 입력이 안돼? </span>
 			</div>
 
 		</div>
