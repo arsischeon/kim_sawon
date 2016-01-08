@@ -160,6 +160,7 @@ var blink;
 			clearInterval(blink);
 			$("#insideMask").css("display","none");
 			$("#inside2").css("pointer-events","all");
+			
 			number=1;
 			switch(parseInt(ui.item.value)){
 				case 1:
