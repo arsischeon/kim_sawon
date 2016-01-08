@@ -180,8 +180,10 @@ obj.addEventListener("load",function(){
 	-$("#logoImage").height()/2+"px");
 
 	});
+	$(window).on("load",function(){
 
-	$(window).scroll(function(){
+
+	$(body).scroll(function(){
 		$("#logoImage").css("left",$("#logoCircle").offset().left+"px");
 		$("#logoImage").css("width",$("#logoCircle")[0].getBoundingClientRect().width+"px");
 		$("#logoImage").css("top",
@@ -189,7 +191,7 @@ obj.addEventListener("load",function(){
 		+$("#logoCircle")[0].getBoundingClientRect().height/2
 		-$("#logoImage").height()/2+"px");
 });
-
+});
 
 obj2.addEventListener("load",function(){
 	var doc=this.getSVGDocument();
