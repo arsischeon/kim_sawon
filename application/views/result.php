@@ -128,9 +128,9 @@ $q2=new SplQueue();
  			 ?>
  		<tr>
  			<td style="width:39%;font-size:10pt; text-align:left;"><b><? echo $resultq['amount']."장"; ?></b>-크기-종이재질-종이무게-도수-면-코팅</td>
- 			<td style="width:11%; font-size:10pt; text-align:left;"><? echo $resultq['site_name']; ?></td>
+ 			<td style="width:13%; font-size:10pt; text-align:left;"><? echo $resultq['site_name']; ?></td>
  			<td style="width:12%; font-size:10pt; text-align:left;"><? echo number_format($resultq['price'])."원"; ?></td>
- 			<td style="width:12%; font-size:10pt; text-align:left;"><? echo number_format($resultq['price']/$resultq['amount'])."원"; ?></td>
+ 			<td style="width:10%; font-size:10pt; text-align:left;"><? echo number_format($resultq['price']/$resultq['amount'])."원"; ?></td>
  			<td style="width:12%; font-size:10pt; text-align:left;"><? echo $resultq['delivery']; ?></td>
  			<td><img onclick="location.href='<? echo $resultq['site_url']; ?>'" type="button" src="/sources/button.png" style="text-align:right; vertical-align:middle; width:80px; cursor:pointer;"></td>
  		</tr>
