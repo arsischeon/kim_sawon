@@ -371,6 +371,15 @@ input[type="radio"]:checked + label::before {
 						obj.addEventListener("load",function(){
 							//마우스오버시 메뉴가 내려옴
 							var doc=obj.getSVGDocument();
+							doc.querySelector("#go1").addEventListener("click",function(){
+								location.href="/search/gosoo";
+							});
+							doc.querySelector("#go2").addEventListener("click",function(){
+								location.href="/search/joongsoo";
+							});
+							doc.querySelector("#go3").addEventListener("click",function(){
+								location.href="/search/hasoo";
+							});
 							var leftOfInside=doc.querySelector("#lefthand").getBoundingClientRect().right;
 							var rightOfInside=doc.querySelector("#righthand").getBoundingClientRect().left;
 							var topOfInside=doc.querySelector("#backgroundWhite").getBoundingClientRect().top;
