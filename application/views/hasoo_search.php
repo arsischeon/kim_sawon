@@ -7,6 +7,7 @@
 </div>
 <img id="sizecc" src="/sources/chuchun.png" style="width:80px; z-index:300; position:absolute; display:none">
 <script>
+var blink;
 	function chuchun(lists){
 			var target=$("#a"+lists[2]);
 			var cc_top=target.offset().top+target.height()*0.7;
@@ -155,6 +156,10 @@
 		});
 		$( "#purpose" ).selectmenu();
 		$( "#purpose" ).on( "selectmenuchange", function( event, ui ) {
+			$("#purpose-button").css("border","none");
+			clearInterval(blink);
+			$("#insideMask").css("display","none");
+			$("#inside2").css("pointer-events","all");
 			number=1;
 			switch(parseInt(ui.item.value)){
 				case 1:
@@ -313,7 +318,7 @@ input[type="radio"]:checked + label::before {
 </div>
 
 <div id="inside" class="container" style=" display:none; position: absolute; ">
-	<div class="row">
+	<div id="cheon" class="row">
 		<div class="col-xs-4">
 			<span class="option-label">무슨 용도야? 추천해줄게!</span>
 		</div>
@@ -331,7 +336,7 @@ input[type="radio"]:checked + label::before {
 			<div style="display: inline-block; "><span class="option-label">개</span></div>
 		</div>
 	</div>
-	<div class="container" id="inside2" style="padding:0px; overflow-y:auto; overflow-x:hidden; ">
+	<div class="container" id="inside2" style="pointer-events: none; padding:0px; overflow-y:auto; overflow-x:hidden; ">
 	<div class="row">
 		<div class="col-xs-5" style="padding-right:0px;">
 			<span class="option-label">수량</span>
@@ -561,6 +566,18 @@ obj.addEventListener("load",function(){
 	$("#inside2").css("height",heightOfInside-70+"px");
 	$("#inside2").css("margin-top","10px");
 	$("#inside2").css("padding-right","20px");
+
+   var insideMask = "<div id='insideMask' style='position:absolute; z-index:9000; background: white; opacity:0.5; left:0px;   '></div>";
+	 $("#inside2").append(insideMask);
+	 $("#insideMask").css("width",insideWidth-20+"px");
+	 $("#insideMask").css("height",heightOfInside-70+"px");
+	 $("#insideMask").css("top",$("#cheon").height()+28+"px");
+	 $("#purpose-button").css("border","2px solid #CE6545");
+	 blink=setInterval(function(){
+		 $("#purpose-button").fadeOut('slow').fadeIn('slow');
+	 },2000);
+
+
 	$(window).on("resize",function(){
 		var leftOfInside=doc.querySelector("#lefthand").getBoundingClientRect().right;
 		var rightOfInside=doc.querySelector("#righthand").getBoundingClientRect().left;
@@ -574,6 +591,9 @@ obj.addEventListener("load",function(){
 		$("#inside").css("height",heightOfInside-35+"px");
 		$("#inside2").css("width",insideWidth-20+"px");
 		$("#inside2").css("height",heightOfInside-55+"px");
+		$("#insideMask").css("width",insideWidth-20+"px");
+		$("#insideMask").css("height",heightOfInside-70+"px");
+		$("#insideMask").css("top",$("#cheon").height()+28+"px");
 	});
 	});
 
