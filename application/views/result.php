@@ -173,9 +173,7 @@ obj.addEventListener("load",function(){
 	$("#result_table2").css("margin-left",$("#sline").position().left+"px");
 
 	$("#logoImage").css("left",$("#logoCircle").offset().left+"px");
-	$("#logoImage").css("width",$("#logoCircle").width+"px");
-
-	// console.log(($("#logoCircle").offset().top+($("#logoCircle").height)/2-($("#logoImage").height)/2)+"px");
+	$("#logoImage").css("width",$("#logoCircle").width()+"px");
 	$("#logoImage").css("top",
 	$("#logoCircle").offset().top
 	+$("#logoCircle")[0].getBoundingClientRect().height/2
