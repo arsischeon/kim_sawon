@@ -132,7 +132,7 @@ $q2=new SplQueue();
 				<td style="width:10%; font-size:10pt; text-align:left;"><? echo number_format($resultq['price']/$resultq['amount'])."원"; ?></td>
 
  			<td style="width:12%; font-size:10pt; text-align:left;"><? echo number_format($resultq['price'])."원"; ?></td>
-			<td style="width:10%; font-size:10pt; text-align:left;"><? echo number_format($resultq['price']-$price)."원"; ?></td>
+			<td style="width:26%; font-size:10pt; text-align:left;"><? echo number_format($resultq['price']-$price)."원"; ?></td>
 
  			<td style="width:12%; font-size:10pt; text-align:left;"><? echo $resultq['delivery']; ?></td>
  			<td><img onclick="location.href='<? echo $resultq['site_url']; ?>'" type="button" src="/sources/button.png" style="text-align:right; vertical-align:middle; width:80px; cursor:pointer;"></td>
