@@ -12,7 +12,11 @@ class Search extends CI_Model{
           $amount;
           $this->load->database();
         }
+        public function getData(){
+          return $this->input->get('size').",".$this->input->get('side').",".$this->input->get('paperType').",".$this->input->get('paperThick').",".$this->input->get('color').",".$this->input->get('coating').",".$this->input->get('amount');
 
+
+        }
   public function gosuExact(){
 
     $goods=$this->input->get('goods');
@@ -23,6 +27,7 @@ class Search extends CI_Model{
     $color=$this->input->get('color');
     $coating=$this->input->get('coating');
     $amount=$this->input->get('amount');
+
       return $this->db->query("
 select * from PARSED p
 join SITE s on p.site_id=s.id

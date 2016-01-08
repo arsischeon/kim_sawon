@@ -7,6 +7,7 @@ class Result extends CI_Controller {
     $this->load->model('search');
     $data['resultSimmilar']=$this->search->gosuSimmilar();
     $data['resultExact']=$this->search->gosuExact();
+    $data['getData']=$this->search->getData();
     $this->load->view('header');
     $this->load->view('result',$data);
     $this->load->view('footer');

@@ -17,7 +17,7 @@
    </g>
    <g id="dummy">
       <text class="cls-5" transform="translate(456.71 208.01)">
-         <tspan class="cls-6">“포스터 200부를 A2크기의 마시멜로우지 150g으로 4도 단면 출력하고, 단면유광으로 코팅해주세요</tspan>
+         <tspan id="sumText" class="cls-6"></tspan>
       </text>
    </g>
    <g id="cheapest_price_banner" data-name="cheapest price banner">

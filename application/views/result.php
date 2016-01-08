@@ -4,7 +4,6 @@
 	<object id="obj" data="/sources/result.svg" type="image/svg+xml"></object>
 	<object style="min-width:1080px; z-index:100;" class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
 </div>
-
 <div id="segment" style="min-width:806px; width:100%; position:absolute;" >
 	<svg id="result" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1433.47 259.15">
    <defs>
@@ -162,6 +161,7 @@ var obj2=document.getElementById('obj2');
 obj.addEventListener("load",function(){
 	//마우스오버시 메뉴가 내려옴
 	var doc=this.getSVGDocument();
+
 	$("#segment").css("top",doc.querySelector("#cheapest_price_banner").getBoundingClientRect().bottom+"px");
 	$("#segment").css("height",doc.querySelector("rect.cls-2").getBoundingClientRect().bottom-doc.querySelector("#cheapest_price_banner").getBoundingClientRect().bottom+"px");
 	$("#segment").css("left",doc.querySelector("#cheapest_price_banner").getBoundingClientRect().left+"px");
@@ -179,8 +179,74 @@ obj.addEventListener("load",function(){
 	+$("#logoCircle")[0].getBoundingClientRect().height/2
 	-$("#logoImage").height()/2+"px");
 
+
+
+
+	var listOr="<? echo $getData; ?>";
+	var list=listOr.split(",");
+	for(var i=0; i<list.length;i++){
+		switch(i){
+			case 0:
+				size=findPos(list[i],numOfSize,nameOfSize);
+			break;
+			case 1:
+				side=findPos(list[i],numOfSide,nameOfSide);
+			break;
+			case 2:
+				paperType=findPos(list[i],numOfPaperType,nameOfPaperType);
+			break;
+			case 3:
+				paperThick=findPos(list[i],numOfPaperThick,nameOfPaperThick);
+			break;
+			case 4:
+				color=findPos(list[i],numOfColor,nameOfColor);
+			break;
+			case 5:
+				coating=findPos(list[i],numOfCoating,nameOfCoating);
+			break;
+			case 6:
+				amount=list[i];
+			break;
+		}
+	}
+
+	doc.querySelector("#sumText").text("\"포스터 "+amount+"을 "+size+"크기의 "+paperType+" "+paperThick+"으로 "+side+" "+color+"로 출력하고 , "+coating+"으로 코팅해 주세요\"");
+
+
 	});
+	var numOfSize=[,3,2,1,7,6,10,9,8,15,14,16];
+	var nameOfSize=["","A3","A2","A1","B3","B2","8절","4절","2절","국4절","국2절","국절"];
+	var nameOfColor=["1도","4도"];
+	var numOfColor=[1,2];
+	var nameOfSide=["단면","양면"];
+	var numOfSide=[1,2];
+	var numOfPaperType=[1,2,3,4,5,6];
+	var nameOfPaperType=["아트지","스노우지","모조지","르느와르","랑데뷰","아르떼"];
+	var numOfPaperThick=[1,2,3,4,5,6,8,9,10,11,12,13,14,15,16,17];
+	var nameOfPaperThick=["100g","120g","150g","180g","200g","250g","300g","105g","80g","130g","160g","190g","210g","240g","220g","260g"];
+	var numOfCoating=[,1,2,3,4];
+	var nameOfCoating=["코팅안함","단면무광","양면무광","단면유광","양면유광"];
+
+	function findPos(data,num,name){
+		var pos;
+		for(var i=0;i<num.length;i++){
+			if(data==num[i]){pos=i;}
+		}
+		return name[pos];
+	}
+
+	var amount="-";
+	var paperType="-";
+	var paperThick="-g";
+	var size="-";
+	var coating="-";
+	var color="-도";
+	var side="-";
+
+
+
 	$(window).on("load",function(){
+
 
 
 	$(window).scroll(function(){
