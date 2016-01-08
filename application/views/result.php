@@ -31,9 +31,9 @@
 				$suffix="";
 				if(is_file("/sources/logo/".$result['id'].".jpg")){
 					$suffix=".jpg";
-				}elseif(is_file("/sources/logo/".$result['id'].".png")){
+				}else if(is_file("/sources/logo/".$result['id'].".png")){
 					$suffix=".png";
-				}elseif(is_file("/sources/logo/".$result['id'].".gif")){
+				}else if(is_file("/sources/logo/".$result['id'].".gif")){
 					$suffix=".gif";
 				}
 				echo $result['id'].$suffix;
