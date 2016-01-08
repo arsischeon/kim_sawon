@@ -180,10 +180,10 @@ obj.addEventListener("load",function(){
 	$("#result_table2").css("width",document.getElementById("sline").getBoundingClientRect().width+"px");
 	$("#result_table2").css("margin-left",$("#sline").position().left+"px");
 
-	$("#logoImage").css("left",$("#logoCircle").offset().left);
-	$("#logoImage").css("top",$("#logoCircle").offset().top);
-	$("#logoImage").css("width",$("#logoCircle").width);
-	$("#logoImage").css("height",$("#logoCircle").height);
+	$("#logoImage").css("left",$("#logoCircle").position().left+"px");
+	$("#logoImage").css("top",$("#logoCircle").position().top+"px");
+	$("#logoImage").css("width",$("#logoCircle").width+"px");
+	$("#logoImage").css("height",$("#logoCircle").height+"px");
 	});
 
 
