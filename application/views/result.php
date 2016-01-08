@@ -27,20 +27,7 @@
       <text class="cls-3" transform="translate(312.11 75.8)"><?echo number_format($price=$result['price'])."원 (장당 가격: ".number_format($result['price']/$result['amount'])."원)";?></text>
 
       <circle id="logoCircle" class="cls-4" cx="170.85" cy="108.62" r="66.9"/>
-			<img id="logoImage" class="img img-circle" src="/sources/logo/<?
-				$suffix="";
-				if(file_exists("../sources/logo/".$result['id'].".jpg")){
-					$suffix=".jpg";
-				}else if(file_exists("../sources/logo/".$result['id'].".png")){
-					$suffix=".png";
-				}else if(file_exists("../sources/logo/".$result['id'].".gif")){
-					$suffix=".gif";
-				}else{
-					$suffix="sibal2";
-				}
-				echo "../sources/logo/".$result['id'].".jpg";
-				// echo $result['id'].$suffix;
-			?>">
+			<img id="logoImage" style="position: absolute;" class="img img-circle" src="/sources/logo/<?echo $result['id'];?>.png">
    </g>
    <g id="more_results" data-name="more results">
       <text class="cls-5" style="font-size:8px;" transform="translate(1137.78 175.05)">검색결과 더보기</text>
