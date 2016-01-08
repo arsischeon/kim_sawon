@@ -57,7 +57,7 @@
 <?
 if(!isset($iiid)){
 	echo "결과 없음";
-	echo "<div id='logoImage'></div>"
+	echo "<div id='logoImage'></div>";
 }else{?>
 <img id="logoImage" style="position: fixed;" class="img" src="/sources/logo/<?echo $iiid;?>.jpg">
 <? } ?>
