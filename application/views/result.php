@@ -55,7 +55,7 @@
 
 </svg>
 <?
-if(!issset($iiid)){
+if(!isset($iiid)){
 	echo "결과 없음";
 }else{?>
 <img id="logoImage" style="position: fixed;" class="img" src="/sources/logo/<?echo $iiid;?>.jpg">
