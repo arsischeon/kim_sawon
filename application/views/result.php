@@ -26,7 +26,18 @@
 
       <text class="cls-3" transform="translate(312.11 75.8)"><?echo number_format($price=$result['price'])."원 (장당 가격: ".number_format($result['price']/$result['amount'])."원)";?></text>
 
-      <circle class="cls-4" cx="170.85" cy="108.62" r="66.9"/>
+      <circle id="logoCircle" class="cls-4" cx="170.85" cy="108.62" r="66.9"/>
+			<img id="logoImage" class="img img-circle" src="/sources/logo/<?
+				$suffix="";
+				if(is_file("/sources/logo/".$result['id'].".jpg")){
+					$suffix=".jpg";
+				}elseif(is_file("/sources/logo/".$result['id'].".png")){
+					$suffix=".png";
+				}elseif(is_file("/sources/logo/".$result['id'].".gif")){
+					$suffix=".gif";
+				}
+				echo $result['id'].$suffix;
+			?>">
    </g>
    <g id="more_results" data-name="more results">
       <text class="cls-5" style="font-size:8px;" transform="translate(1137.78 175.05)">검색결과 더보기</text>
@@ -156,37 +167,6 @@ $("td>img").css("width", "99px");
 var obj=document.getElementById('obj');
 var obj2=document.getElementById('obj2');
 
-function getRule(data) {
-
-      var rule;
-
-      var ss = document.styleSheets;
-
-      for (var i = 0; i < ss.length; ++i) {
-
-          // loop through all the rules!
-
-          for (var x = 0; x < ss[i].cssRules.length; ++x) {
-
-              rule = ss[i].cssRules[x];
-
-              if (rule.name == data || rule.selectorText=="."+data) {
-
-                  return rule;
-
-              }
-
-          }
-
-      }
-
-  }
-
-
-
-
- // console.log(doc.querySelector('#previous_page_arrow').getBoundingClientRect().bottom);
-
 obj.addEventListener("load",function(){
 	//마우스오버시 메뉴가 내려옴
 	var doc=this.getSVGDocument();
@@ -200,7 +180,10 @@ obj.addEventListener("load",function(){
 	$("#result_table2").css("width",document.getElementById("sline").getBoundingClientRect().width+"px");
 	$("#result_table2").css("margin-left",$("#sline").position().left+"px");
 
-
+	$("#logoImage").css("left",$("#logoCircle").offset().left);
+	$("#logoImage").css("top",$("#logoCircle").offset().top);
+	$("#logoImage").css("width",$("#logoCircle").width);
+	$("#logoImage").css("height",$("#logoCircle").height);
 	});
 
 
