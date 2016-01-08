@@ -99,7 +99,7 @@ doc.querySelector('#menu3').addEventListener("click",function(){
 doc.querySelector('#logo').addEventListener("click",function(){
 	location.href="/";
 });
-
+closeWindowByMask();
 
 });
 

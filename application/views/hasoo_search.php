@@ -582,7 +582,8 @@ obj.addEventListener("load",function(){
 obj2.addEventListener("load",function(){
 	var doc=this.getSVGDocument();
 	var initial=getRule("initial");
-	initial.style.cssText="position:absolute; top:-"+ doc.querySelector('#background').getBoundingClientRect().height +"px";
+	var h;
+	initial.style.cssText="position:absolute; top:-"+((h=doc.querySelector('#background').getBoundingClientRect().height)>120?h:"164.122") +"px";
 	doc.querySelector('#mouse_over_pop_up .cls-3').addEventListener("mouseover",function(){
 		var hei; //백그라운드 높이 저장
 		obj2.classList.remove('movingUp');
@@ -626,7 +627,7 @@ doc.querySelector('#menu3').addEventListener("click",function(){
 doc.querySelector('#logo').addEventListener("click",function(){
 	location.href="/";
 });
-
+closeWindowByMask();
 
 });
 

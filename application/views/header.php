@@ -34,3 +34,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </style>
 </head>
 <body style=" margin:0; background: #EFF0EA;">
+  <script>
+  wrapWindowByMask();
+  </script>
