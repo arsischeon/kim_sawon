@@ -100,6 +100,10 @@ function sideSelect(value){
 			makeSentence("side",nameOfSide[pos],numOfSide[pos]);
 }
 $(function(){
+	$("#submit_yes").on("click",function(){
+		console.log(Iamount+";;"+ IpaperType+";;"+IpaperThick+";;"+Isize+";;"+Icoating+";;"+Iside+";;"+Icolor);
+		location.href="/result/lists?goods=1&amount="+Iamount+"&paperType="+IpaperType+"&paperThick="+IpaperThick+"&size="+Isize+"&coating="+Icoating+"&side="+Iside+"&color="+Icolor;
+	});
 	$( "#amount" ).selectmenu().selectmenu( "menuWidget" ).addClass( "overflow" );
 	$( "#amount" ).on( "selectmenuchange", function( event, ui ) { makeSentence("amount",ui.item.label,ui.item.value); } );
 	$( "#paperType" ).selectmenu();
