@@ -174,7 +174,7 @@ obj.addEventListener("load",function(){
 
 	$("#logoImage").css("left",$("#logoCircle").position().left+"px");
 	$("#logoImage").css("width",$("#logoCircle").width+"px");
-	$("#logoImage").css("top",$("#logoCircle").position().top+$("#logoCircle").height/2-$("#logoImage").height/2"px");
+	$("#logoImage").css("top",$("#logoCircle").position().top+$("#logoCircle").height/2-$("#logoImage").height/2+"px");
 	});
 
 
