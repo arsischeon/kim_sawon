@@ -181,7 +181,7 @@ obj.addEventListener("load",function(){
 
 	});
 
-	$(window).on("scroll",funtion(){
+	$(window).on("scroll",function(){
 		$("#logoImage").css("left",$("#logoCircle").offset().left+"px");
 		$("#logoImage").css("width",$("#logoCircle")[0].getBoundingClientRect().width+"px");
 		$("#logoImage").css("top",
