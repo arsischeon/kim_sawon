@@ -172,8 +172,8 @@ obj.addEventListener("load",function(){
 	$("#result_table2").css("width",document.getElementById("sline").getBoundingClientRect().width+"px");
 	$("#result_table2").css("margin-left",$("#sline").position().left+"px");
 
-	$("#logoImage").css("left",$("#logoCircle")[0].getBoundingClientRect().left+"px");
-	$("#logoImage").css("width",$("#logoCircle")[0].getBoundingClientRect().width-5+"px");
+	$("#logoImage").css("left",$("#logoCircle")[0].getBoundingClientRect().left+2+"px");
+	$("#logoImage").css("width",$("#logoCircle")[0].getBoundingClientRect().width-4+"px");
 	$("#logoImage").css("top",
 	$("#logoCircle")[0].getBoundingClientRect().top
 	+$("#logoCircle")[0].getBoundingClientRect().height/2
@@ -185,8 +185,8 @@ obj.addEventListener("load",function(){
 
 	$(window).scroll(function(){
 		console.log("scroll");
-		$("#logoImage").css("left",$("#logoCircle")[0].getBoundingClientRect().left+"px");
-		$("#logoImage").css("width",$("#logoCircle")[0].getBoundingClientRect().width-5+"px");
+		$("#logoImage").css("left",$("#logoCircle")[0].getBoundingClientRect().left+2+"px");
+		$("#logoImage").css("width",$("#logoCircle")[0].getBoundingClientRect().width-4+"px");
 		$("#logoImage").css("top",
 		$("#logoCircle")[0].getBoundingClientRect().top
 		+$("#logoCircle")[0].getBoundingClientRect().height/2
