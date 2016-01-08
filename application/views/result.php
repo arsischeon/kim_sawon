@@ -29,7 +29,6 @@
       <text class="cls-3" transform="translate(312.11 75.8)"><?echo number_format($price=$result['price'])."원 (장당 가격: ".number_format($result['price']/$result['amount'])."원)";?></text>
 
       <circle style="fill:white;" id="logoCircle" class="cls-4" cx="170.85" cy="108.62" r="66.9"/>
-			<image id="logoImage" style="position: absolute;" class="img" xlink:href="/sources/logo/<?echo $iiid;?>.png">
    </g>
    <g id="more_results" data-name="more results">
       <text class="cls-5" style="font-size:8px;" transform="translate(1137.78 175.05)">검색결과 더보기</text>
@@ -53,7 +52,7 @@
  			}
  			endforeach; ?>
 </svg>
-
+<img id="logoImage" style="position: fixed;" class="img" src="/sources/logo/<?echo $iiid;?>.png">
 <style>
 table{
 	color: #66635A;
