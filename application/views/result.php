@@ -49,9 +49,17 @@
    </g>
 	 <?php
  			}
- 			endforeach; ?>
+ 			endforeach;
+
+			?>
+
 </svg>
+<?
+if(!issset($iiid)){
+	echo "결과 없음";
+}else{?>
 <img id="logoImage" style="position: fixed;" class="img" src="/sources/logo/<?echo $iiid;?>.jpg">
+<? } ?>
 <style>
 table{
 	color: #66635A;
@@ -75,7 +83,7 @@ $q2=new SplQueue();
 			}
 			}
  		endforeach; ?>
-
+<div id="scrollArea">
 		<?
 		 if(!$q1->isEmpty()) {
 			 $flag1=1;
@@ -110,7 +118,6 @@ $q2=new SplQueue();
 
 	</table>
 <?}?>
-
 	<table id="result_table2">
 		<thead>
 			<th style="font-size:15pt; text-align:left;">이건 어때요?</th>
@@ -140,7 +147,7 @@ $q2=new SplQueue();
  		<? }?>
 		</tbody>
 	</table>
-
+</div>
 
 <script>
 $("td>img").css("width", "99px");
