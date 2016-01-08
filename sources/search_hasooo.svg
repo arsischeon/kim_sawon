@@ -111,15 +111,15 @@
     <rect id="go3" style="cursor:pointer;" class="cls-4" x="892.38" y="97.89" width="293.88" height="172.49" rx="14.61" ry="14.61"/>
     <rect id="backgroundWhite" class="cls-4" x="243.25" y="171.13" width="1433.5" height="781.35" rx="14.61" ry="14.61"/>
     <g>
-      <text class="cls-6" transform="translate(979.92 151.25)">인쇄 하수</text>
+      <text style="pointer-events: none;" class="cls-6" transform="translate(979.92 151.25)">인쇄 하수</text>
       <rect class="cls-3" x="972.22" y="119.26" width="132.37" height="39.71"/>
     </g>
     <g>
-      <text class="cls-7" transform="translate(330.79 151.25)">인쇄 고수</text>
+      <text style="pointer-events: none;" class="cls-7" transform="translate(330.79 151.25)">인쇄 고수</text>
       <rect class="cls-3" x="324.56" y="119.26" width="132.15" height="39.71"/>
     </g>
     <g>
-      <text class="cls-7" transform="translate(655.35 151.25)">인쇄 중수</text>
+      <text style="pointer-events: none;" class="cls-7" transform="translate(655.35 151.25)">인쇄 중수</text>
       <rect class="cls-3" x="646.61" y="119.26" width="136.57" height="39.71"/>
     </g>
   </g>
