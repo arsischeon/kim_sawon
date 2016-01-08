@@ -38,7 +38,8 @@
 				}else{
 					$suffix="sibal2";
 				}
-				echo $result['id'].$suffix;
+				echo "../sources/logo/".$result['id'].".jpg";
+				// echo $result['id'].$suffix;
 			?>">
    </g>
    <g id="more_results" data-name="more results">
