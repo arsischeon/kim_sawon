@@ -29,11 +29,11 @@
       <circle id="logoCircle" class="cls-4" cx="170.85" cy="108.62" r="66.9"/>
 			<img id="logoImage" class="img img-circle" src="/sources/logo/<?
 				$suffix="";
-				if(file_exists("/sources/logo/".$result['id'].".jpg")){
+				if(file_exists("../sources/logo/".$result['id'].".jpg")){
 					$suffix=".jpg";
-				}else if(file_exists("/sources/logo/".$result['id'].".png")){
+				}else if(file_exists("../sources/logo/".$result['id'].".png")){
 					$suffix=".png";
-				}else if(file_exists("/sources/logo/".$result['id'].".gif")){
+				}else if(file_exists("../sources/logo/".$result['id'].".gif")){
 					$suffix=".gif";
 				}else{
 					$suffix="sibal2";
