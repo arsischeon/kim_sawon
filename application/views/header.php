@@ -5,7 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="HandheldFriendly" content="true">
   <meta name="description" content="프린트 최저가 검색">
   <meta name="author" content="SERIESC">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -24,6 +25,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<title></title>
   <style>
+  html {
+    -webkit-text-size-adjust: none
+}
   body{
     font-family: 'Noto Sans Korean', sans-serif !important;
   }
