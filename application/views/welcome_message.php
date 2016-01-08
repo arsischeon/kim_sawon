@@ -3,7 +3,7 @@
 	<object id="obj" data="/sources/mainpage-01.svg" type="image/svg+xml"></object>
 </div>
 <div id="banner" style="position:absolute; width:100%;">
-	<img src="/sources/banner.jpg" class="img img-responsive" >
+	<img src="/sources/banner.jpg" class="img img-responsive">
 </div>
 <script>
 document.getElementById('obj').addEventListener("load",function(){
@@ -12,7 +12,6 @@ document.getElementById('obj').addEventListener("load",function(){
 	var banner_bottom=doc.querySelector("#down").getBoundingClientRect().top;
 	$("#banner").css("top",banner_top-0.1+"px");
 	$("#banner").css("height",(banner_bottom-banner_top)+"px");
-
 	$(window).on("resize",function(){
 		banner_top=doc.querySelector("#up").getBoundingClientRect().bottom;
 		banner_bottom=doc.querySelector("#down").getBoundingClientRect().top;

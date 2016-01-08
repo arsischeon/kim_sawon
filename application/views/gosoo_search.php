@@ -12,44 +12,100 @@ var paperType="-";
 var paperThick="-g";
 var size="-";
 var coating="-";
-var front_color="-도";
-var back_color="인쇄안함";
-function makeSentence(name,value){
+var color="-도";
+var side="-";
+
+var Iamount="";
+var IpaperType="";
+var IpaperThick="";
+var Isize="";
+var Icoating="";
+var Iside="";
+var Icolor="";
+function makeSentence(name,value,Id){
 
 	switch (name) {
 		case "amount":
 		amount=value;
+		Iamount=Id;
 		break;
 		case "paperType":
 		paperType=value;
+		IpaperType=Id;
 		break;
 		case "paperThick":
 		paperThick=thickList[value];
+		IpaperThick=Id;
 		break;
 		case "size":
 		size=value;
+		Isize=Id;
 		break;
 		case "coating":
 		coating=value;
+		Icoating=Id;
 		break;
-		case "front_color":
-		front_color=value;
+		case "color":
+		color=value;
+		Icolor=Id;
 		break;
-		case "back_color":
-		back_color=value;
+		case "side":
+		side=value;
+		Iside=Id;
 		break;
 		default:
 
 	}
-	$("#offer").text("\"포스터 "+amount+"을 "+size+"크기의 "+paperType+" "+paperThick+"으로 앞면 "+front_color+" "+(back_color=="인쇄안함"?"":"뒷면 "+back_color)+"로 출력하고 , "+coating+"으로 코팅해 주세요\"");
+	$("#offer").text("\"포스터 "+amount+"을 "+size+"크기의 "+paperType+" "+paperThick+"으로 "+side+" "+color+"로 출력하고 , "+coating+"으로 코팅해 주세요\"");
+	if(amount=="-"||paperType=="-"||paperThick=="-g"||size=="-"||coating=="-"||side==""||color==""){
+		$("#submit_no").css("display","block");
+		$("#submit_yes").css("display","none");
+	}else{
+		$("#submit_no").css("display","none");
+		$("#submit_yes").css("display","block");
+	}
+	if(Iamount!=""){
+	var request = $.ajax({
+	url: "/result/silsigan_search?goods=1&amount="+Iamount+"&paperType="+IpaperType+"&paperThick="+IpaperThick+"&size="+Isize+"&coating="+Icoating+"&side="+Iside+"&color="+Icolor+"",
+	success:function(data){
+		$( "#silsigan" ).html(data);
+	}
+	});
+}
+}
+	var numOfSize=[,3,2,1,7,6,10,9,8,15,14,16];
+	var nameOfSize=["","A3","A2","A1","B3","B2","8절","4절","2절","국4절","국2절","국절"];
+function colorSelect(value){
+	var pos;
+	var idOfColor=["1do","4do"];
+	var nameOfColor=["1도","4도"];
+	var numOfColor=[1,2];
+	for(var i=0;i<idOfColor.length;i++){
+		if(value==idOfColor[i]){
+			pos=i;
+		}
+	}
+	makeSentence("color",nameOfColor[pos],numOfColor[pos]);
+}
+function sideSelect(value){
+		var pos;
+		var idOfSide=["single","double"];
+		var nameOfSide=["단면","양면"];
+		var numOfSide=[1,2];
+		for(var i=0;i<idOfSide.length;i++){
+			if(value==idOfSide[i]){
+				pos=i;
+			}
+		}
+			makeSentence("side",nameOfSide[pos],numOfSide[pos]);
 }
 $(function(){
 	$( "#amount" ).selectmenu().selectmenu( "menuWidget" ).addClass( "overflow" );
-	$( "#amount" ).on( "selectmenuchange", function( event, ui ) { makeSentence("amount",ui.item.label); } );
+	$( "#amount" ).on( "selectmenuchange", function( event, ui ) { makeSentence("amount",ui.item.label,ui.item.value); } );
 	$( "#paperType" ).selectmenu();
 	$( "#paperType" ).on( "selectmenuchange", function( event, ui ) {
-		makeSentence("paperType",ui.item.label);
-		console.log(ui.item);
+		makeSentence("paperType",ui.item.label,ui.item.value);
+		// console.log(ui.item);
 		switch (parseInt(ui.item.value)) {
 			case 1:
 			thickList=['',"100g","120g","150g","180g","200g","250g","300"];
@@ -85,21 +141,20 @@ $(function(){
 		}).slider("pips","refresh");
 	});
 	$( "#coating" ).selectmenu();
-	$( "#coating" ).on( "selectmenuchange", function( event, ui ) { makeSentence("coating",ui.item.label); } );
-	$( "#front_color" ).selectmenu();
-	$( "#front_color" ).on( "selectmenuchange", function( event, ui ) { makeSentence("front_color",ui.item.label); } );
-	$( "#back_color" ).selectmenu();
-	$( "#back_color" ).on( "selectmenuchange", function( event, ui ) { makeSentence("back_color",ui.item.label); } );
+	$( "#coating" ).on( "selectmenuchange", function( event, ui ) { makeSentence("coating",ui.item.label,ui.item.value); } );
 	$('[data-toggle="tooltip"]').tooltip();
 	var sizeList=["",""];
-	$( "#size" ).slider({max:2}).slider("pips",{
-		step: 50,
-		labels:["0","1","2"],
+	$( "#size" ).slider({max:11}).slider("pips",{
+		first: false,
+		labels:["","A3","A2","A1","B3","B2","8절","4절","2절","국4절","국2절","국전"],
 		rest: "label"
 	}).slider("float",{
-		labels: ["0","1","2"]
+		labels:["","A3","A2","A1","B3","B2","8절","4절","2절","국4절","국2절","국전"],
 	});
-
+	$("#size").on( "slidechange", function( event, ui ) {
+		console.log(ui);
+		makeSentence("size",nameOfSize[ui.value],numOfSize[ui.value]);
+	});
 	$( "#thick" ).slider({max:thickList.length}).slider("pips",{
 		first:false,
 		rest: "label",
@@ -107,7 +162,7 @@ $(function(){
 	});
 	$("#thick").on( "slidechange", function( event, ui ) {
 		console.log(ui);
-		makeSentence("paperThick",ui.value);
+		makeSentence("paperThick",ui.value,orderList[ui.value]);
 	});
 });
 </script>
@@ -154,6 +209,18 @@ option{
 }
 #inside{
 
+}
+input[type="radio"] {
+    position:absolute;
+    clip: rect(0,0,0,0);
+    clip: rect(0 0 0 0);
+}
+input[type="radio"] + label::before {
+	  vertical-align: -webkit-baseline-middle;
+    content: url('/sources/radio_no.png');
+}
+input[type="radio"]:checked + label::before {
+    content: url('/sources/radio_yes.png');
 }
 @keyframes down {}
 	@keyframes up {}
@@ -212,6 +279,7 @@ option{
 							<div class="col-xs-3" style="width:30%;">
 								<span class="option-label">코팅</span>
 								<select name="coating" id="coating">
+									<option value=""></option>
 									<option value="">코팅없음</option>
 									<option value="1">단면무광</option>
 									<option value="2">양면무광</option>
@@ -227,7 +295,13 @@ option{
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<div id="size">
+								<div style="padding-left:20px;">
+									<span style="position: absolute; left: 11%; font-size:15px;">A</span>
+									<span style="position: absolute; left: 28%; font-size:15px;">B</span>
+									<span style="position: absolute; left: 46%; font-size:15px;">4*6판계열</span>
+									<span style="position: absolute; left: 72%; font-size:15px;">국판계열</span>
+								</div>
+								<div id="size" style="margin-top: 22px; background: linear-gradient(to right,white 0%, white 27.3%, #DEDDDD 27.3%, #DEDDDD 45.5%, white 45.5%, white 72.8%, #DEDDDD 72.8%, #DEDDDD 100%) !important;">
 								</div>
 							</div>
 						</div>
@@ -243,26 +317,19 @@ option{
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-12">
-								<span class="option-label">도수와 인쇄면</span>
-							</div>
-						</div>
-						<div class="row">
 							<div class="col-xs-4">
-								<span class="option-label">앞면</span>
-								<select name="front_color" id="front_color">
-									<option value=""></option>
-									<option value="1">1도</option>
-									<option value="2">4도</option>
-								</select>
+								<span class="option-label">인쇄면</span>
+								<div style="margin-top: 10px;">
+									<input name="side" id="single" type="radio" onclick="sideSelect('single')" ><label style="padding-left:15px; font-weight: normal; font-size:14px; " class="option-label" for="single">단면</label>
+									<input name="side" id="double" type="radio" onclick="sideSelect('double')"><label style="padding-left:15px; font-weight: normal; font-size:14px; " class="option-label" for="double">양면</label>
+								</div>
 							</div>
 							<div class="col-xs-4">
-								<span class="option-label">뒷면</span>
-								<select name="back_color" id="back_color">
-									<option value="">인쇄안함</option>
-									<option value="1">1도</option>
-									<option value="2">4도</option>
-								</select>
+								<span class="option-label">도수</span>
+								<div style="margin-top: 10px;">
+									<input name="color" id="1do" type="radio" onclick="colorSelect('1do')" ><label style="padding-left:15px; font-weight: normal; font-size:14px; " class="option-label" for="1do">1도</label>
+									<input name="color" id="4do" type="radio" onclick="colorSelect('4do')"><label style="padding-left:15px; font-weight: normal; font-size:14px; " class="option-label" for="4do">4도</label>
+								</div>
 							</div>
 						</div>
 						<div class="row">
@@ -279,18 +346,18 @@ option{
 						<div class="row" style="margin-top:14px;">
 							<div class="col-xs-4">
 								<div style="float:left;">	<span class="option-label">검색 결과 개수:</span></div>
-								<div style="border-bottom: 2px solid #f3c262; display: inline-block; width:80px; text-align:center; font-size:17px;"> 30</div>
+								<div id="silsigan" style="border-bottom: 2px solid #f3c262; display: inline-block; width:80px; text-align:center; font-size:17px;"></div>
 								<div style="display: inline-block; "><span class="option-label">개</span></div>
 							</div>
 							<div class="col-xs-4">
 							</div>
 							<div class="col-xs-4">
-								<img style="height:32px; float:right;" src="/sources/submit_button.png">
+								<img id="submit_yes" style="cursor:pointer; height:32px;float: right; display:none;" src="/sources/submit_button.png">
+								<img id="submit_no" style="height:32px;     float: right; display:block;" src="/sources/submit_no_button.png">
 							</div>
 						</div>
 
 					</div>
-
 
 					<script>
 					$(function(){
