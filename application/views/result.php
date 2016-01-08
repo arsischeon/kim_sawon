@@ -52,7 +52,7 @@
  			}
  			endforeach; ?>
 </svg>
-<img id="logoImage" style="position: fixed;" class="img" src="/sources/logo/<?echo $iiid;?>.png">
+<img id="logoImage" style="position: fixed;" class="img" src="/sources/logo/<?echo $iiid;?>.jpg">
 <style>
 table{
 	color: #66635A;
