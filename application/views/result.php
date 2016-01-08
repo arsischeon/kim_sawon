@@ -127,8 +127,8 @@ $q2=new SplQueue();
  			 $resultq=$q2->dequeue();
  			 ?>
  		<tr>
- 			<td style="width:29%;font-size:10pt; text-align:left;"><b><? echo $resultq['amount']."장으로 바꿨을 때"; ?></b></td>
- 			<td style="width:13%; font-size:10pt; text-align:left;"><? echo $resultq['site_name']; ?></td>
+ 			<td style="width:20%;font-size:10pt; text-align:left;"><b><? echo $resultq['amount']."장"; ?></b>으로 바꿨을 때</td>
+ 			<td style="width:22%; font-size:10pt; text-align:left;"><? echo $resultq['site_name']; ?></td>
 				<td style="width:10%; font-size:10pt; text-align:left;"><? echo number_format($resultq['price']/$resultq['amount'])."원"; ?></td>
 
  			<td style="width:12%; font-size:10pt; text-align:left;"><? echo number_format($resultq['price'])."원"; ?></td>
