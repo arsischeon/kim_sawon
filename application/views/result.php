@@ -224,7 +224,7 @@ obj.addEventListener("load",function(){
 	var nameOfPaperType=["아트지","스노우지","모조지","르느와르","랑데뷰","아르떼"];
 	var numOfPaperThick=[1,2,3,4,5,6,8,9,10,11,12,13,14,15,16,17];
 	var nameOfPaperThick=["100g","120g","150g","180g","200g","250g","300g","105g","80g","130g","160g","190g","210g","240g","220g","260g"];
-	var numOfCoating=[,1,2,3,4];
+	var numOfCoating=["",1,2,3,4];
 	var nameOfCoating=["코팅안함","단면무광","양면무광","단면유광","양면유광"];
 
 	function findPos(data,num,name){
