@@ -176,7 +176,10 @@ obj.addEventListener("load",function(){
 	$("#logoImage").css("width",$("#logoCircle").width+"px");
 
 	// console.log(($("#logoCircle").offset().top+($("#logoCircle").height)/2-($("#logoImage").height)/2)+"px");
-	$("#logoImage").css("top",($("#logoCircle").offset().top+($("#logoCircle")[0].getBoundingClientRect().height/2-($("#logoImage").height())/2)+"px");
+	$("#logoImage").css("top",
+	$("#logoCircle").offset().top
+	+$("#logoCircle")[0].getBoundingClientRect().height/2
+	-$("#logoImage").height()/2)+"px");
 
 	});
 
