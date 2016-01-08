@@ -36,7 +36,7 @@
 				}else if(file_exists("/sources/logo/".$result['id'].".gif")){
 					$suffix=".gif";
 				}else{
-					$suffix="sibal";
+					$suffix="sibal2";
 				}
 				echo $result['id'].$suffix;
 			?>">
