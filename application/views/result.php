@@ -210,7 +210,7 @@ obj.addEventListener("load",function(){
 		}
 	}
 
-	doc.querySelector("#sumText").text("\"포스터 "+amount+"을 "+size+"크기의 "+paperType+" "+paperThick+"으로 "+side+" "+color+"로 출력하고 , "+coating+"으로 코팅해 주세요\"");
+	doc.querySelector("#sumText").innerHTML="\"포스터 "+amount+"을 "+size+"크기의 "+paperType+" "+paperThick+"으로 "+side+" "+color+"로 출력하고 , "+coating+"으로 코팅해 주세요\"";
 
 
 	});
