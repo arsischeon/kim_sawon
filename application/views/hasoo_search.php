@@ -155,12 +155,13 @@ var blink;
 		}
 		});
 		$( "#purpose" ).selectmenu();
+
 		$( "#purpose" ).on( "selectmenuchange", function( event, ui ) {
 			$("#purpose-button").css("border","none");
 			clearInterval(blink);
 			$("#insideMask").css("display","none");
 			$("#inside2").css("pointer-events","all");
-			
+
 			number=1;
 			switch(parseInt(ui.item.value)){
 				case 1:
@@ -275,7 +276,9 @@ option{
 .image-paper{
 
 }
-
+.ui-menu-item-wrapper{
+	z-index: 9000;
+}
 .col-xs-4.papersize1{
 	width: 31.3%;
 	margin: 1% 1%;
@@ -568,7 +571,7 @@ obj.addEventListener("load",function(){
 	$("#inside2").css("margin-top","10px");
 	$("#inside2").css("padding-right","20px");
 
-   var insideMask = "<div id='insideMask' style='position:absolute; z-index:9000; background: white; opacity:0.5; left:0px;   '></div>";
+   var insideMask = "<div id='insideMask' style='position:absolute;  background: white; opacity:0.5; left:0px;   '></div>";
 	 $("#inside2").append(insideMask);
 	 $("#insideMask").css("width",insideWidth-20+"px");
 	 $("#insideMask").css("height",heightOfInside-70+"px");

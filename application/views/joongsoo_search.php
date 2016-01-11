@@ -118,9 +118,92 @@
 		});
 	}
 
-	}
-	$(function(){
+}
 
+$(window).load(function(){
+		for(var i=1;i<7;i++){
+		var paperIt=$("#paper"+i);
+		var pointY=paperIt.offset().top+paperIt.height()*0.78;
+		var pointX=paperIt.offset().left+paperIt.width()*0.78;
+		$("body").append("<div id='magPaper"+i+"' style='z-index:4000; left:"+pointX+"px; top:"+pointY+"px; position:fixed;'></div>");
+		$("#magPaper"+i).css("width",paperIt.width()*0.22+"px");
+		$("#magPaper"+i).css("height",paperIt.width()*0.22+"px");
+		$("#magPaper"+i).css("cursor","pointer");
+		$("body").append("<div id='paperMagni"+i+"' style='z-index: 4500;width:30%; top:25%; left:35%; position:absolute; display:none;'><img class='img img-responsive' src='/sources/paperR"+i+".jpg'></div>");
+	}
+	clickMag();
+		$("#inside2").scroll(function(){
+			for(var i=1;i<7;i++){
+			var paperIt=$("#paper"+i);
+			var pointY=paperIt.offset().top+paperIt.height()*0.78;
+			var pointX=paperIt.offset().left+paperIt.width()*0.78;
+			$("#magPaper"+i).css("left",pointX+"px");
+			$("#magPaper"+i).css("top",pointY+"px");
+			$("#magPaper"+i).css("width",paperIt.width()*0.22+"px");
+			$("#magPaper"+i).css("height",paperIt.width()*0.22+"px");
+			$("#magPaper"+i).css("cursor","pointer");
+		}
+		clickMag();
+		});
+});
+function magCancel(){
+	for(var i=1;i<7;i++){
+		$("#inside2").css("overflow-y","hidden");
+		$("#paperMagni"+i).css("display","none");
+
+	}
+}
+function clickMag(){
+	$("#magPaper1").on("click",function(){
+		magCancel();
+		$("#paperMagni1").css("display","block");
+		$("#paperMagni1").on("click",function(){
+				$("#paperMagni1").css("display","none");
+				$("#inside2").css("overflow-y","auto");
+		});
+	});
+	$("#magPaper2").on("click",function(){
+		magCancel();
+		$("#paperMagni2").css("display","block");
+		$("#paperMagni2").on("click",function(){
+				$("#paperMagni2").css("display","none");
+				$("#inside2").css("overflow-y","auto");
+		});
+	});
+	$("#magPaper3").on("click",function(){
+		magCancel();
+		$("#paperMagni3").css("display","block");
+		$("#paperMagni3").on("click",function(){
+				$("#paperMagni3").css("display","none");
+				$("#inside2").css("overflow-y","auto");
+		});
+	});
+	$("#magPaper4").on("click",function(){
+		magCancel();
+		$("#paperMagni4").css("display","block");
+		$("#paperMagni4").on("click",function(){
+				$("#paperMagni4").css("display","none");
+				$("#inside2").css("overflow-y","auto");
+		});
+	});
+	$("#magPaper5").on("click",function(){
+		magCancel();
+		$("#paperMagni5").css("display","block");
+		$("#paperMagni5").on("click",function(){
+				$("#paperMagni5").css("display","none");
+				$("#inside2").css("overflow-y","auto");
+		});
+	});
+	$("#magPaper6").on("click",function(){
+		magCancel();
+		$("#paperMagni6").css("display","block");
+		$("#paperMagni6").on("click",function(){
+				$("#paperMagni6").css("display","none");
+				$("#inside2").css("overflow-y","auto");
+		});
+	});
+}
+	$(function(){
 
 
 
@@ -217,7 +300,7 @@ function typeSelect(value){
 	for(var i=0;i<idOfType.length;i++){
 		if(value==idOfType[i]){
 			pos=i;
-			$("#"+value).after("<div id=\"selected_type_mark\" style=\"width:"+$("#paper1").width()+"px; height:"+$("#paper1").height()+"px; border-radius: 0px; left: inherit;\"class=\"option-selected\"></div>");
+			$("#"+value).after("<div id=\"selected_type_mark\" style=\"z-index:3000; width:"+$("#paper1").width()+"px; height:"+$("#paper1").height()+"px; border-radius: 0px; left: inherit;\"class=\"option-selected\"></div>");
 		}
 	}
 		makeSentence("paperType",nameOfType[pos],numOfType[pos]);
