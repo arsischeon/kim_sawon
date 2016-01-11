@@ -300,12 +300,12 @@ input[type="radio"]:checked + label::before {
 						<div class="row">
 							<div class="col-xs-12">
 								<div style="padding-left:20px;">
-									<span style="position: absolute; left: 11%; font-size:15px;">A</span>
-									<span style="position: absolute; left: 28%; font-size:15px;">B</span>
-									<span style="position: absolute; left: 46%; font-size:15px;">4*6판계열</span>
-									<span style="position: absolute; left: 72%; font-size:15px;">국판계열</span>
+									<span style="position: absolute; left: 18%; font-size:15px;">A</span>
+									<span style="position: absolute; left: 41%; font-size:15px;">B</span>
+									<span style="position: absolute; left: 58%; font-size:15px;">4*6판계열</span>
+									<span style="position: absolute; left: 83%; font-size:15px;">국판계열</span>
 								</div>
-								<div id="size" style="margin-top: 22px; background: linear-gradient(to right,white 0%, white 27.3%, #DEDDDD 27.3%, #DEDDDD 45.5%, white 45.5%, white 72.8%, #DEDDDD 72.8%, #DEDDDD 100%) !important;">
+								<div id="size" style="margin-top: 22px; background: linear-gradient(to right,#DEDDDD 4.5%, white 4.5%, white 31.8%, #DEDDDD 31.8%, #DEDDDD 50%, white 50%, white 77.3%, #DEDDDD 77.3%, #DEDDDD 100%) !important;">
 								</div>
 							</div>
 						</div>
