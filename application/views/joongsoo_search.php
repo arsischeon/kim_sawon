@@ -1,5 +1,11 @@
 
-
+<script>
+$(window).bind("pageshow", function(event) {
+    if (event.originalEvent.persisted) {
+        document.location.reload();
+    }
+});
+</script>
 <div style="min-width:1080px">
 	<object id="obj" data="/sources/search_joongsoo.svg"  type="image/svg+xml"></object>
 	<object style="min-width:1080px; z-index: 1000;
@@ -129,7 +135,7 @@ $(window).load(function(){
 		$("#magPaper"+i).css("width",paperIt.width()*0.22+"px");
 		$("#magPaper"+i).css("height",paperIt.width()*0.22+"px");
 		$("#magPaper"+i).css("cursor","pointer");
-		$("body").append("<div id='paperMagni"+i+"' style='z-index: 4500;width:30%; top:25%; left:35%; position:absolute; display:none;'><img class='img img-responsive' src='/sources/paperR"+i+".jpg'></div>");
+		$("body").append("<div id='paperMagni"+i+"' style='cursor:pointer; z-index: 4500;width:30%; top:25%; left:35%; position:absolute; display:none;'><img class='img img-responsive' src='/sources/paperR"+i+".jpg'></div>");
 	}
 	clickMag();
 		$("#inside2").scroll(function(){
