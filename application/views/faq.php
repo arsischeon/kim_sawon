@@ -4,6 +4,12 @@
 	<object id="obj" data="/sources/faq1-09.svg" type="image/svg+xml"></object>
 	<object style="min-width:1080px; z-index:9000; " class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
 </div>
+<style>
+.panel-title, .panel-body{
+	    font-size: 13px !important;
+			font-weight: 400;
+}
+</style>
 <div id="cartoon" style="overflow-y:auto; position: absolute; z-index:1;">
 	<div class="container-fluid">
 
