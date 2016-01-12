@@ -4,6 +4,18 @@
 	<object id="obj" data="/sources/result.svg" type="image/svg+xml"></object>
 	<object style="min-width:1080px; z-index:100;" class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
 </div>
+<style>
+#scrollArea{
+	overflow-y: auto;
+
+
+
+}
+</style>
+<script>
+ var exact_next_list=[];
+
+</script>
 <div id="segment" style="min-width:806px; width:100%; position:absolute;" >
 	<svg id="result" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1433.47 259.15">
    <defs>
@@ -48,7 +60,14 @@
       </text>
    </g>
 	 <?php
- 			}
+ }else{
+			?>
+			<script>
+			var exact_next_<? echo $cnt; ?>=["<? echo $result['amount'].'장'; ?>","<? echo $result['site_name']; ?>","<? echo number_format($result['price']/$result['amount']).'원'; ?>","<? echo number_format($result['price']).'원'; ?>","<? echo number_format($result['price']-$price).'원'; ?>","<? echo $result['delivery']; ?>","<? echo $result['site_url']; ?>"];
+			exact_next_list.push(exact_next_<? echo $cnt; ?>);
+			</script>
+			<?
+		}
  			endforeach;
 
 			?>
