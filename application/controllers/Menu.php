@@ -29,5 +29,10 @@ class Menu extends CI_Controller {
     $this->load->view('ask');
     $this->load->view('footer');
   }
+  public function mobile(){
+    $this->load->view('header');
+    $this->load->view('mobile');
+    $this->load->view('footer');
+  }
 
 }

@@ -1,7 +1,7 @@
 
 
 <div style="min-width:1080px">
-	<object id="obj" data="/sources/cs.svg" type="image/svg+xml"></object>
+	<object id="obj" data="/sources/cs-09.svg" type="image/svg+xml"></object>
 	<object style="min-width:1080px; " class="initial" id="obj2" data="/sources/coming_down2.svg" type="image/svg+xml"></object>
 </div>
 
@@ -25,6 +25,12 @@ var obj2=document.getElementById('obj2');
 obj.addEventListener("load",function(){
 	//마우스오버시 메뉴가 내려옴
 	var doc=this.getSVGDocument();
+	doc.querySelector("#faq").addEventListener("click",function(){
+			location.href="/menu/faq";
+		});
+		doc.querySelector("#ask").addEventListener("click",function(){
+				alert("출장 중입니다~ 페이스북이나 카카오톡으로 연락주세요~");
+			});
 	});
 
 
