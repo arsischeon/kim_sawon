@@ -279,40 +279,13 @@ obj.addEventListener("load",function(){
 	$(window).on("load",function(){
 		$("#more_results").on("click",function(){
 			var num=4;
-			var head="\<table id=\"result_table_exact\"\>
-			\<thead\>
-					\<th style=\"font-size:15pt; text-align:left;\"\>같은 옵션 가격비교\</th\>
-					\<th style=\"font-size:10pt; text-align:left;\"\>업체명\</th\>
-					\<th style=\"font-size:10pt; text-align:left;\"\>장당 가격\</th\>
-					\<th style=\"font-size:10pt; text-align:left;\"\>총액\</th\>
-					\<th style=\"font-size:10pt; text-align:left;\"\>차액\</th\>
-					\<th style=\"font-size:10pt; text-align:left;\"\>배송비\</th\>
-					\<th\>\</th\>
-				\</thead\>
-				\<tbody\>
-				";
+			var head="\<table id=\"result_table_exact\"\>\<thead\>\<th style=\"font-size:15pt; text-align:left;\"\>같은 옵션 가격비교\</th\>\<th style=\"font-size:10pt; text-align:left;\"\>업체명\</th\>\<th style=\"font-size:10pt; text-align:left;\"\>장당 가격\</th\>\<th style=\"font-size:10pt; text-align:left;\"\>총액\</th\>\<th style=\"font-size:10pt; text-align:left;\"\>차액\</th\>\<th style=\"font-size:10pt; text-align:left;\"\>배송비\</th\>\<th\>\</th\>\</thead\>\<tbody\>";
 
 			for(var i=0; i<num;i++){
 				var result=exact_next_list[i];
-				head+="
-				\<tr\>
-				\<td style=\"width:22%;font-size:10pt; text-align:left;\"\>\<b\>"+result[0]+"\</b\>으로 동일할 때\</td\>
-				\<td style=\"width:20%; font-size:10pt; text-align:left;\"\>"+result[1]+"\</td\>
-					\<td style=\"width:10%; font-size:10pt; text-align:left;\"\>"+result[2]+"\</td\>
-
-				\<td style=\"width:12%; font-size:10pt; text-align:left;\"\>"+result[3]+"\</td\>
-				\<td style=\"width:10%; font-size:10pt; text-align:left; opacity:0.6;\"\>"+result[4]+"\</td\>
-
-				\<td style=\"width:12%; font-size:10pt; text-align:left;\"\>"+result[5]+"\</td\>
-				\<td\>\<img onclick=\"location.href='"+result[6]+"'\" type=\"button\" src=\"/sources/button.png\" style=\"text-align:right; vertical-align:middle; width:80px; cursor:pointer;\"\>\</td\>
-			\</tr\>
-
-				";
+				head+="\<tr\>\<td style=\"width:22%;font-size:10pt; text-align:left;\"\>\<b\>"+result[0]+"\</b\>으로 동일할 때\</td\>\<td style=\"width:20%; font-size:10pt; text-align:left;\"\>"+result[1]+"\</td\>\<td style=\"width:10%; font-size:10pt; text-align:left;\"\>"+result[2]+"\</td\>\<td style=\"width:12%; font-size:10pt; text-align:left;\"\>"+result[3]+"\</td\>\<td style=\"width:10%; font-size:10pt; text-align:left; opacity:0.6;\"\>"+result[4]+"\</td\>\<td style=\"width:12%; font-size:10pt; text-align:left;\"\>"+result[5]+"\</td\>\<td\>\<img onclick=\"location.href='"+result[6]+"'\" type=\"button\" src=\"/sources/button.png\" style=\"text-align:right; vertical-align:middle; width:80px; cursor:pointer;\"\>\</td\>\</tr\>";
 			}
-			head+="
-			\</tbody\>
-		\</table\>
-			";
+			head+="\</tbody\>\</table\>";
 
 			$("#scrollArea").append(head);
 
