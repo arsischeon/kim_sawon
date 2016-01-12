@@ -219,7 +219,7 @@ obj.addEventListener("load",function(){
 	$("#result_table_exact").css("width",document.getElementById("sline").getBoundingClientRect().width+"px");
 	$("#result_table_exact").css("margin-left",$("#sline").position().left+"px");
 
-	$("#scrollArea").css("height",doc.querySelector("#rectSpecial").getBoundingClientRect().top+doc.querySelector("#rectSpecial").getBoundingClientRect().height-$("#sline").position().top+"px");
+	$("#scrollArea").css("height",(doc.querySelector("#rectSpecial").getBoundingClientRect().top+doc.querySelector("#rectSpecial").getBoundingClientRect().height-$("#sline").position().top)+"px");
 
 
 
