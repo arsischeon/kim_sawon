@@ -34,5 +34,10 @@ class Menu extends CI_Controller {
     $this->load->view('mobile');
     $this->load->view('footer');
   }
+  public function browser(){
+    $this->load->view('header');
+    $this->load->view('browser');
+    $this->load->view('footer');
+  }
 
 }
