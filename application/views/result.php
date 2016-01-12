@@ -277,7 +277,7 @@ obj.addEventListener("load",function(){
 
 
 	$(window).on("load",function(){
-		var kk=4;
+console.log(exact_next_list);
 
 
 	$(window).scroll(function(){
