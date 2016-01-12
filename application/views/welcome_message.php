@@ -1,4 +1,11 @@
-<script language="javascript"> //Go to Mobile Page
+<script language="javascript">
+var agent = navigator.userAgent.toLowerCase();
+ 
+if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (agent.indexOf("msie") != -1) ) {
+	document.location = "/menu/browser";
+}
+
+//Go to Mobile Page
     // Mobile여부를 구분하기 위함
     var uAgent = navigator.userAgent.toLowerCase();
 
