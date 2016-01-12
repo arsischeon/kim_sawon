@@ -277,7 +277,7 @@ obj.addEventListener("load",function(){
 
 
 	$(window).on("load",function(){
-
+		var kk=4;
 
 
 	$(window).scroll(function(){
