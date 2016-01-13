@@ -199,7 +199,7 @@ obj.addEventListener("load",function(){
 	for(var i=0; i<num;i++){
 		var resultt=[];
 		resultt=exact_next_list[i];
-		head+="\<tr\>\<td style=\"width:22%;font-size:10pt; text-align:left;\"\>\<b\>"+resultt[0]+"\</b\>으로 동일할 때\</td\>\<td style=\"width:20%; font-size:10pt; text-align:left;\"\>"+resultt[1]+"\</td\>\<td style=\"width:10%; font-size:10pt; text-align:left;\"\>"+resultt[2]+"\</td\>\<td style=\"width:12%; font-size:10pt; text-align:left;\"\>"+resultt[3]+"\</td\>\<td style=\"width:10%; font-size:10pt; text-align:left; opacity:0.6;\"\>"+resultt[4]+"\</td\>\<td style=\"width:12%; font-size:10pt; text-align:left;\"\>"+result[5]+"\</td\>\<td\>\<img onclick=\"location.href='"+result[6]+"'\" type=\"button\" src=\"/sources/button.png\" style=\"text-align:right; vertical-align:middle; width:99px; cursor:pointer;\"\>\</td\>\</tr\>";
+		head+="\<tr\>\<td style=\"width:22%;font-size:10pt; text-align:left;\"\>\<b\>"+resultt[0]+"\</b\>으로 동일할 때\</td\>\<td style=\"width:20%; font-size:10pt; text-align:left;\"\>"+resultt[1]+"\</td\>\<td style=\"width:10%; font-size:10pt; text-align:left;\"\>"+resultt[2]+"\</td\>\<td style=\"width:12%; font-size:10pt; text-align:left;\"\>"+resultt[3]+"\</td\>\<td style=\"width:10%; font-size:10pt; text-align:left; opacity:0.6;\"\>"+resultt[4]+"\</td\>\<td style=\"width:12%; font-size:10pt; text-align:left;\"\>"+resultt[5]+"\</td\>\<td\>\<img onclick=\"location.href='"+resultt[6]+"'\" type=\"button\" src=\"/sources/button.png\" style=\"text-align:right; vertical-align:middle; width:99px; cursor:pointer;\"\>\</td\>\</tr\>";
 	}
 	head+="\</tbody\>\</table\>";
 
