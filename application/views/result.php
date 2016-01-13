@@ -191,9 +191,11 @@ var obj=document.getElementById('obj');
 var obj2=document.getElementById('obj2');
 
 obj.addEventListener("load",function(){
-	var num=4;
+	var num;
+	if(exact_next_list.length<4)num=exact_next_list.length;
+	else num=4;
 	var head="\<table style=\"display:none; margin-bottom: 20px;\" id=\"result_table_exact\"\>\<thead\>\<th style=\"font-size:15pt; text-align:left;\"\>같은 옵션 가격비교\</th\>\<th style=\"font-size:10pt; text-align:left;\"\>업체명\</th\>\<th style=\"font-size:10pt; text-align:left;\"\>장당 가격\</th\>\<th style=\"font-size:10pt; text-align:left;\"\>총액\</th\>\<th style=\"font-size:10pt; text-align:left;\"\>차액\</th\>\<th style=\"font-size:10pt; text-align:left;\"\>배송비\</th\>\<th\>\</th\>\</thead\>\<tbody\>";
-	if(exact_next_list.length!=0){
+
 	for(var i=0; i<num;i++){
 		var resultt=[];
 		resultt=exact_next_list[i];
